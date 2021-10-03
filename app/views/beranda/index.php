@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap" rel="stylesheet">
-	<title>Beranda | Kampung Coklat</title>
+	<title>Beranda| Kampung Coklat</title>
 	<link href="<?= BASEURL ?>/css/beranda.css" rel="stylesheet" type="text/css">
     <link href='http://localhost/KampungCoklat/public/img/icon_judul.jpg' rel='shortcut icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -21,7 +21,7 @@
             <img src="http://localhost/KampungCoklat/public/img/Logo-Daun.png">
         </div>
         <div class="right_area">
-            <a href="#" class="logout_btn">Logout</a>
+            <a href="<?= BASEURL ?>/logout" style="color: #000; margin-left: 10px;" class="logout_btn">Logout</a>
         </div>
     </header>
     <!--header area end-->
@@ -31,7 +31,8 @@
             <i class="fa fa-bars nav_btn"></i>
         </div>
         <div class="mobile_nav_items">
-            <a href="#"><i class="fas fa-users"></i><span>PETANI</span></a>
+            <a href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
+            <a href="<?= BASEURL ?>/lihat_petani"><i class="fas fa-users"></i><span>PETANI</span></a>
             <a href="#"><i class="fas fa-database"></i><span>STOK KAKAO</span></a>
             <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK KAKAO</span></a>
             <a href="#"><i class="fas fa-box-open"></i><span>JUMLAH PRODUKSI</span></a>
@@ -42,7 +43,8 @@
     <!--mobile navigation bar end-->
     <!--sidebar start-->
     <div class="sidebar">
-        <a href="#"><i class="fas fa-users"></i><span>PETANI</span></a>
+        <a href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
+        <a href="<?= BASEURL ?>/lihat_petani"><i class="fas fa-users"></i><span>PETANI</span></a>
         <a href="#"><i class="fas fa-database"></i><span>STOK KAKAO</span></a>
         <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK KAKAO</span></a>
         <a href="#"><i class="fas fa-box-open"></i><span>JUMLAH PRODUKSI</span></a>
@@ -52,16 +54,21 @@
     <!--sidebar end-->
 
     <div class="content">
-        <div class="card">
-            <h1>Petani</h1>
-        </div>
-        <div class="card">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-        </div>
-        <div class="card">
-            <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.</p>
-        </div>
-    </div>
+        <ul>
+            <li>
+                <span class="judul">TENTANG</span>
+                <span class="judul2">Kampung Coklat</span>
+            </li>
+            <li>
+                <span><img src='http://localhost/KampungCoklat/public/img/gambar.jpg' width="100%" height="50%" class="isi2"></span>
+                <p class="isi">PT. Kampung Coklat atau dapat disebut sebagai “Wisata Edukasi Kampung Coklat” merupakan perusahaan yang bergerak di bidang jual beli biji kakao, produksi olahan dari biji kakao, dan salah tau tempat wisata edukasi yang berlokasi di Jl. Banteng - Blorok No. 18, Desa Plosorejo, RT. 01 / 06, Kademangan, Plosorejo, Kademangan, Blitar, Jawa Timur.</p>
+            </li>
+            <li>
+                <p class="isi3">Pengolahan produk coklat PT. Kampung Coklat dibuat dan di awasi oleh sang Maestro Coklat PT. Kampung Coklat, dengan memastikan olahan coklat yang layak dan memiliki tekstur yang baik sehingga menciptakan sebuah Olahan Coklat yang bermutu dan berkualitas. PT. Kampung Coklat juga memiliki perkebunan kakao sendiri sehingga terjamin kualitas dan mutu disetiap produk.</p>
+                <span><img src='http://localhost/KampungCoklat/public/img/kakao1.jpg' width="100%" height="50%" class="isi2"></span>
+            </li>
+        </ul>
+</div>
 
     <script type="text/javascript">
     $(document).ready(function(){
