@@ -35,7 +35,7 @@
 			<div class="inputBox">
 				<input type="text" name="email" required oninvalid="this.setCustomValidity('Email tidak boleh kosong')" oninput="setCustomValidity('')"></input>
 				<label>Email</label>
-				<span class="input user"></span>
+				<span class="input pass"></span>
 			</div>
 			<div class="inputBox">
 				<input type="password" name="password" required minlength="3" maxlength="8" oninvalid="this.setCustomValidity('Password tidak boleh kosong')" oninput="setCustomValidity('')"></input>

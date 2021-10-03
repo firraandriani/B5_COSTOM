@@ -48,7 +48,6 @@ div.logo img {
 
 .box .inputBox {
   position: relative;
-  background-color: #fff;
 }
 
 .box .inputBox input {
@@ -57,10 +56,9 @@ div.logo img {
   font-size: 16px;
   color: rgb(0, 0, 0);
   margin-bottom: 30px;
-  background-color: #fff;
   border: none;
   outline: none;
-  background: transparent;
+  background-color: #fff;
 }
 
 .box .inputBox label {
@@ -68,18 +66,18 @@ div.logo img {
   top: 0;
   left: 0;
   padding: 10px 0;
-  background-color: #fff;
   font-size: 16px;
   color: rgb(0, 0, 0);
   pointer-events: none;
   transition: 0.25s;
+  background: white;
+  width: 100%;
 }
 
 .box .inputBox input:focus~label,
 .box .inputBox input:valid~label {
   top: -22.5px;
   left: 0;
-  background-color: #fff;
   color: #6e4415;
   font-size: 12px;
   font-weight: bolder;
@@ -89,9 +87,8 @@ div.logo img {
   position: absolute;
   bottom: 30px;
   right: 0;
-  background-color: #fff;
   display: block;
-  background: #555;
+  background: #6e4415;
   width: 100%;
   height: 2px;
 }
@@ -116,7 +113,11 @@ div.logo img {
   transform: scaleX(1);
   transform-origin: left;
   transition: transform 0.25s ease-in-out;
-  background-color: #fff;
+}
+
+.box h5 a {
+  color: #fff;
+  text-decoration: none;
 }
 
 .remember {
