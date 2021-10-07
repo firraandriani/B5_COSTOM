@@ -11,7 +11,7 @@ class Petani_model {
 
     public function getList()
     {
-        $this->db->query('SELECT petani.*, alamat.nama_kategori AS alamat, status_lahan.nama_kategori AS status_lahan FROM ' . $this->table . '  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_lahan ON status_lahan.id = petani.status_lahan');
+        $this->db->query('SELECT petani.*, alamat.nama_kategori AS alamat, status_lahan.nama_kategori AS status_lahan, status_anggota.nama_kategori AS status_anggota FROM ' . $this->table . '  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_lahan ON status_lahan.id = petani.status_lahan JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota');
         
         return $this->db->resultSet();
         // $data = [];
@@ -47,7 +47,8 @@ class Petani_model {
         $tanggal_lahir = $data['tanggal_lahir'];
         $alamat_kec = $data['alamat_kec'];
         $status_lahan = $data['status_lahan'];
-        $query = "INSERT INTO petani(nama_petani,tanggal_lahir, alamat_kec, status_lahan) VALUES ('$nama_petani', '$tanggal_lahir', $alamat_kec, $status_lahan)";
+        $status_anggota = $data['status_anggota'];
+        $query = "INSERT INTO petani(nama_petani,tanggal_lahir, alamat_kec, status_lahan, status_anggota) VALUES ('$nama_petani', '$tanggal_lahir', $alamat_kec, $status_lahan, $status_anggota)";
         $this->db->query($query);
         $this->db->execute();
         return $this->db->rowCount();
@@ -68,9 +69,10 @@ class Petani_model {
         $tgl_tani = $data['tanggal_lahir'];
         $kec_tani = $data['alamat_kec'];
         $status_tani = $data['status_lahan'];
+        $status_anggota = $data['status_anggota'];
         $id_tani = $data['id_petani'];
 
-        $query = "UPDATE petani SET nama_petani = '$nama_tani', tanggal_lahir = '$tgl_tani', alamat_kec = $kec_tani, status_lahan = $status_tani WHERE id_petani= $id_tani";
+        $query = "UPDATE petani SET nama_petani = '$nama_tani', tanggal_lahir = '$tgl_tani', alamat_kec = $kec_tani, status_lahan = $status_tani, status_anggota = $status_anggota WHERE id_petani= $id_tani";
     
         $this->db->query($query);
         $this->db->execute();

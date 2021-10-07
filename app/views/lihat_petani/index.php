@@ -72,6 +72,7 @@
                             <th>Tanggal Lahir</th>
                             <th>Alamat</th>
                             <th>Status Lahan</th>
+                            <th>Status Keanggotaan</th>
                             <th>Action</th>
                         </tr>
                         <?php foreach ($data['petani'] as $key => $value) { ?>
@@ -81,6 +82,7 @@
                             <th><?= $value['tanggal_lahir'] ?></th>
                             <th><?= $value['alamat'] ?></th>
                             <th><?= $value['status_lahan'] ?></th>
+                            <th><?= $value['status_anggota'] ?></th>
                             <th><a class = 'edit' href = '<?= BASEURL;?>/ubah_petani/<?= $value['id_petani']?>'><i class="fas fa-edit"></i> Ubah</a><a href="<?= BASEURL;?>/hapus_petani/hapus/<?= $value['id_petani']?>" class="hapus"><i class="fas fa-trash"></i> Hapus</a></th>
                         </tr>
                         <?php } ?>

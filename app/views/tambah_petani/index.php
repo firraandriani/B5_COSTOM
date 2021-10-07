@@ -117,6 +117,16 @@
                             </div>
                         </div>
                         <div class="inputfield">
+					        <label class="dataDiri">Status Keanggotaan</label>
+                            <div style="width: 100%;">
+                                <select class="select" name="status_anggota" id="status_anggota" required oninvalid="this.setCustomValidity('Pilih Status Keanggotaan')" oninput="setCustomValidity('')">
+                                    <option value="" <?= (isset($data['status_anggota']) && $data['status_anggota'] == '') ? 'selected' : '' ?>>-Pilih Status Lahan-</option>
+                                    <option value="25" <?= (isset($data['status_anggota']) && $data['status_anggota'] == 25) ? 'selected' : '' ?>>Aktif</option>
+                                    <option value="26" <?= (isset($data['status_anggota']) && $data['status_anggota'] == 26) ? 'selected' : '' ?>>Tidak Aktif</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="inputfield">
                             <label class="dataDiri"> </label>
                             <div style="width: 100%">
                                 <input type="checkbox" id = "klik" <?= (isset($_SESSION['is_create']) && $_SESSION['is_create'] == 1) ? 'checked' : '' ?>>
