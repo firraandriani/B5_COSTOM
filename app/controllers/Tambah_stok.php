@@ -1,6 +1,6 @@
 <?php 
 
-class Tambah_petani extends Controller {
+class Tambah_stok extends Controller {
     public function index() 
     {
         session_start();
@@ -9,16 +9,16 @@ class Tambah_petani extends Controller {
         // $data['petani'] = $this->model('Petani_model')->getList();
         $data['nama'] = $user['nama'];
 
-        $this->view('tambah_petani/index', $data);
+        $this->view('tambah_stok/index', $data);
         $_SESSION['is_create'] = 0;
     }
 
     public function tambah()
     {
         session_start();
-        if( $this->model('Petani_model')->tambahPetani($_POST, $_SESSION["id"]) > 0){
+        if( $this->model('Stok_model')->tambahStok($_POST, $_SESSION["id"]) > 0){
             $_SESSION['is_create'] = 1;
-            header('Location: '. BASEURL . '/tambah_petani');
+            header('Location: '. BASEURL . '/tambah_stok');
             exit;
         }
     }

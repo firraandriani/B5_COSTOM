@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap" rel="stylesheet">
-	<title>Petani | Kampung Coklat</title>
+	<title>Stok Kakao | Kampung Coklat</title>
 	<link href="<?= BASEURL ?>/css/melihat_petani.css" rel="stylesheet" type="text/css">
     <link href='http://localhost/KampungCoklat/public/img/icon_judul.jpg' rel='shortcut icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -55,53 +55,57 @@
 
     <div class="content">
         <div class="card">
-            <h1>Petani</h1>
+            <h1>Stok Kakao</h1>
         </div>
         <div class="card_table">
             <div>
                 <div class="card_table1">
                     <br><br>
-                    <a href="<?= BASEURL ?>/tambah_petani" class="tambah"><i class="fas fa-user-plus"></i><span> Tambah</span></a>
+                    <a href="<?= BASEURL ?>/tambah_stok" class="tambah"><i class="fas fa-user-plus"></i><span> Tambah</span></a>
                 </div>
                 </div>
                 <div class="card_table2">
                     <table class="tabelMahasiswa" width="60%">
                         <tr>
                             <th>No.</th>
+                            <th>Tanggal Setor</th>
                             <th>Nama Petani</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Alamat</th>
-                            <th>Status Keanggotaan</th>
+                            <th>Stok Masuk(kg)</th>
+                            <th>Status Kakao</th>
+                            <th>Harga(kg)</th>
+                            <th>Total Harga</th>
                             <th>Action</th>
                         </tr>
-                        <?php foreach ($data['petani']['list_data'] as $key => $value) { ?>
+                        <?php foreach ($data['stok']['list_data'] as $key => $value) { ?>
                         <tr>
                             <th><?= ($key + 1) ?></th>
+                            <th><?= $value['tanggal_setor'] ?></th>
                             <th><?= $value['nama_petani'] ?></th>
-                            <th><?= $value['tanggal_lahir'] ?></th>
-                            <th><?= $value['alamat'] ?></th>
-                            <th><?= $value['status_anggota'] ?></th>
-                            <th><a class = 'edit' href = '<?= BASEURL;?>/ubah_petani/<?= $value['id_petani']?>'><i class="fas fa-edit"></i> Ubah</a><a href="<?= BASEURL;?>/hapus_petani/hapus/<?= $value['id_petani']?>" class="hapus"><i class="fas fa-trash"></i> Hapus</a></th>
+                            <th><?= $value['stok_masuk'] ?></th>
+                            <th><?= $value['status_kakao'] ?></th>
+                            <th><?= $value['harga'] ?></th>
+                            <th><?= $value['harga']*$value['stok_masuk'] ?></th>
+                            <th><a class = 'edit' href = '<?= BASEURL;?>/ubah_stok/<?= $value['id_stok']?>'><i class="fas fa-edit"></i> Ubah</a><a href="<?= BASEURL;?>/hapus_stok/hapus/<?= $value['id_stok']?>" class="hapus"><i class="fas fa-trash"></i> Hapus</a></th>
                         </tr>
                         <?php } ?>
                     </table>
                     <br>
                     <br>
 
-                    <?php if($data['petani']['halaman_saat_ini'] > 1): ?>
-                        <a href = "<?= BASEURL ?>/lihat_petani/<?= $data['petani']['halaman_saat_ini'] - 1; ?>"  class = 'pageLebih'>&laquo;</a>
+                    <?php if($data['stok']['halaman_saat_ini'] > 1): ?>
+                        <a href = "<?= BASEURL ?>/lihat_stok/<?= $data['stok']['halaman_saat_ini'] - 1; ?>"  class = 'pageLebih'>&laquo;</a>
                     <?php endif; ?>
 
-                    <?php for($p = 1; $p <= $data['petani']['jumlah_halaman']; $p++): ?>
-                        <?php if($p == $data['petani']['halaman_saat_ini']): ?>
-                            <a href= "<?= BASEURL ?>/lihat_petani/<?= $p; ?>" class = 'page_aktif'><?= $p; ?></a>
+                    <?php for($p = 1; $p <= $data['stok']['jumlah_halaman']; $p++): ?>
+                        <?php if($p == $data['stok']['halaman_saat_ini']): ?>
+                            <a href= "<?= BASEURL ?>/lihat_stok/<?= $p; ?>" class = 'page_aktif'><?= $p; ?></a>
                         <?php else: ?>
-                            <a href= "<?= BASEURL ?>/lihat_petani/<?= $p; ?>"  class = 'page'><?= $p; ?></a>
+                            <a href= "<?= BASEURL ?>/lihat_stok/<?= $p; ?>"  class = 'page'><?= $p; ?></a>
                         <?php endif; ?>
                     <?php endfor; ?>
                     
-                    <?php if($data['petani']['halaman_saat_ini'] < $data['petani']['jumlah_halaman']): ?>
-                        <a href = "<?= BASEURL ?>/lihat_petani/<?= $data['petani']['halaman_saat_ini'] + 1; ?>"  class = 'pageLebih'>&raquo;</a>
+                    <?php if($data['stok']['halaman_saat_ini'] < $data['stok']['jumlah_halaman']): ?>
+                        <a href = "<?= BASEURL ?>/lihat_stok/<?= $data['stok']['halaman_saat_ini'] + 1; ?>"  class = 'pageLebih'>&raquo;</a>
                     <?php endif; ?>
 
                     <br>

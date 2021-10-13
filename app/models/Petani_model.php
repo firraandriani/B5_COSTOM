@@ -9,32 +9,31 @@ class Petani_model {
         $this->db = new Database;
     }
 
-    public function getList()
+    public function getList($page)
     {
-        $this->db->query('SELECT petani.*, alamat.nama_kategori AS alamat, status_lahan.nama_kategori AS status_lahan, status_anggota.nama_kategori AS status_anggota FROM ' . $this->table . '  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_lahan ON status_lahan.id = petani.status_lahan JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota');
+        // $this->db->query('SELECT petani.*, alamat.nama_kategori AS alamat, status_lahan.nama_kategori AS status_lahan, status_anggota.nama_kategori AS status_anggota FROM ' . $this->table . '  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota');
         
-        return $this->db->resultSet();
-        // $data = [];
+        // return $this->db->resultSet();
+        
+        $data = [];
 
-        // $jumlahDataSetiapPage = 10;
-        // $jumlahData = $this -> db_connect -> prepare("SELECT petani.*, alamat.nama_kategori AS alamat, status_lahan.nama_kategori AS status_lahan FROM ' . $this->table . '  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_lahan ON status_lahan.id = petani.status_lahan");
-        // $jumlahData -> execute();
-        // $jumlahData = $jumlahData -> fetchAll();
-        // $jumlahData = count($jumlahData);
+        $jumlahDataSetiapPage = 10;
+        $this -> db -> query("SELECT petani.*, alamat.nama_kategori AS alamat, status_anggota.nama_kategori AS status_anggota FROM `" . $this->table . "`  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota");
+        $jumlahData = $this -> db -> resultSet();
+        $jumlahData = count($jumlahData);
 
-        // $jumlahPage = ceil($jumlahData / $jumlahDataSetiapPage);
-        // $halamanSaatIni = ( isset($_GET["Page"]) ) ? $_GET["Page"] : 1;
-        // $dataPertama = ($jumlahDataSetiapPage * $halamanSaatIni) - $jumlahDataSetiapPage;
+        $jumlahPage = ceil($jumlahData / $jumlahDataSetiapPage);
+        $halamanSaatIni = ( isset($page) ) ? $page : 1;
+        $dataPertama = ($jumlahDataSetiapPage * $halamanSaatIni) - $jumlahDataSetiapPage;
 
-        // $query = $this -> db_connect -> prepare("SELECT petani.*, alamat.nama_kategori AS alamat, status_lahan.nama_kategori AS status_lahan FROM ' . $this->table . '  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_lahan ON status_lahan.id = petani.status_lahan LIMIT $dataPertama, $jumlahDataSetiapPage");
-        // $query -> execute();
-        // $daftarData = $query -> fetchAll();
+        $this -> db -> query("SELECT petani.*, alamat.nama_kategori AS alamat, status_anggota.nama_kategori AS status_anggota FROM `" . $this->table . "`  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota LIMIT $dataPertama, $jumlahDataSetiapPage");
+        $daftarData = $this -> db -> resultSet();
 
-        // $data['list_data'] = $daftarData;
-        // $data['halaman_saat_ini'] = $halamanSaatIni;
-        // $data['jumlah_halaman'] = $jumlahPage;
+        $data['list_data'] = $daftarData;
+        $data['halaman_saat_ini'] = $halamanSaatIni;
+        $data['jumlah_halaman'] = $jumlahPage;
 
-        // return $data;
+        return $data;
     }
 
     public function getpetaniById($id_petani){
@@ -46,9 +45,8 @@ class Petani_model {
         $nama_petani= $data['nama_petani'];
         $tanggal_lahir = $data['tanggal_lahir'];
         $alamat_kec = $data['alamat_kec'];
-        $status_lahan = $data['status_lahan'];
         $status_anggota = $data['status_anggota'];
-        $query = "INSERT INTO petani(nama_petani,tanggal_lahir, alamat_kec, status_lahan, status_anggota) VALUES ('$nama_petani', '$tanggal_lahir', $alamat_kec, $status_lahan, $status_anggota)";
+        $query = "INSERT INTO petani(nama_petani,tanggal_lahir, alamat_kec, status_anggota) VALUES ('$nama_petani', '$tanggal_lahir', $alamat_kec, $status_anggota)";
         $this->db->query($query);
         $this->db->execute();
         return $this->db->rowCount();
@@ -68,11 +66,10 @@ class Petani_model {
         $nama_tani = $data['nama_petani'];
         $tgl_tani = $data['tanggal_lahir'];
         $kec_tani = $data['alamat_kec'];
-        $status_tani = $data['status_lahan'];
         $status_anggota = $data['status_anggota'];
         $id_tani = $data['id_petani'];
 
-        $query = "UPDATE petani SET nama_petani = '$nama_tani', tanggal_lahir = '$tgl_tani', alamat_kec = $kec_tani, status_lahan = $status_tani, status_anggota = $status_anggota WHERE id_petani= $id_tani";
+        $query = "UPDATE petani SET nama_petani = '$nama_tani', tanggal_lahir = '$tgl_tani', alamat_kec = $kec_tani, status_anggota = $status_anggota WHERE id_petani= $id_tani";
     
         $this->db->query($query);
         $this->db->execute();

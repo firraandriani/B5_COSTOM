@@ -32,11 +32,11 @@
         </div>
         <div class="mobile_nav_items">
             <a href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
-            <a href="<?= BASEURL ?>/lihat_petani"><i class="fas fa-users"></i><span>PETANI</span></a>
-            <a href="#"><i class="fas fa-database"></i><span>STOK KAKAO</span></a>
-            <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK KAKAO</span></a>
-            <a href="#"><i class="fas fa-box-open"></i><span>JUMLAH PRODUKSI</span></a>
-            <a href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK STOK</span></a>
+            <a href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+            <a href="<?= BASEURL ?>/lihat_stok/1"><i class="fas fa-database"></i><span>STOK</span></a>
+            <a href="#"><i class="fas fa-box-open"></i><span>PRODUKSI</span></a>
+            <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK</span></a>
+            <a href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
             <a href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
         </div>
     </div>
@@ -44,11 +44,11 @@
     <!--sidebar start-->
     <div class="sidebar">
         <a href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
-        <a href="<?= BASEURL ?>/lihat_petani"><i class="fas fa-users"></i><span>PETANI</span></a>
-        <a href="#"><i class="fas fa-database"></i><span>STOK KAKAO</span></a>
-        <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK KAKAO</span></a>
-        <a href="#"><i class="fas fa-box-open"></i><span>JUMLAH PRODUKSI</span></a>
-        <a href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK STOK</span></a>
+        <a href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+        <a href="<?= BASEURL ?>/lihat_stok/1"><i class="fas fa-database"></i><span>STOK</span></a>
+        <a href="#"><i class="fas fa-box-open"></i><span>PRODUKSI</span></a>
+        <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK</span></a>
+        <a href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
         <a href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
     </div>
     <!--sidebar end-->
@@ -102,16 +102,6 @@
                                     <option value="22" <?= (isset($data['alamat_kec']) && $data['alamat_kec'] == 22) ? 'selected' : '' ?>>Wlingi</option>
                                     <option value="23" <?= (isset($data['alamat_kec']) && $data['alamat_kec'] == 23) ? 'selected' : '' ?>>Wonodadi</option>
                                     <option value="24" <?= (isset($data['alamat_kec']) && $data['alamat_kec'] == 24) ? 'selected' : '' ?>>Wonotirto</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="inputfield">
-					        <label class="dataDiri">Status Lahan</label>
-                            <div style="width: 100%;">
-                                <select class="select" name="status_lahan" id="status_lahan" required oninvalid="this.setCustomValidity('Pilih Status Lahan')" oninput="setCustomValidity('')">
-                                    <option value="" <?= (isset($data['status_lahan']) && $data['status_lahan'] == '') ? 'selected' : '' ?>>-Pilih Status Lahan-</option>
-                                    <option value="1" <?= (isset($data['status_lahan']) && $data['status_lahan'] == 1) ? 'selected' : '' ?>>Sewa</option>
-                                    <option value="2" <?= (isset($data['status_lahan']) && $data['status_lahan'] == 2) ? 'selected' : '' ?>>Milik Pribadi</option>
                                 </select>
                             </div>
                         </div>

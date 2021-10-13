@@ -185,7 +185,7 @@ label #sidebar_btn:hover{
 }
 .pageLebih {
   text-decoration: none;
-  background-color: #AFEEEE;
+  background-color: #e9d09e;
   padding: 10px 10px;
   text-align: center;
   font-family: Arial;
@@ -194,7 +194,7 @@ label #sidebar_btn:hover{
 }
 .page {
   text-decoration: none;
-  background-color: rgba(235, 235, 235, 0.6);
+  background-color: #fff5e2;
   padding: 10px 10px;
   text-align: center;
   font-family: Arial;
@@ -203,7 +203,7 @@ label #sidebar_btn:hover{
 }
 .page_aktif {
   text-decoration: none;
-  background-color: #1D79F2;
+  background-color: #360405;
   padding: 10px 10px;
   text-align: center;
   font-family: Arial;

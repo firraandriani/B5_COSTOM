@@ -32,11 +32,11 @@
         </div>
         <div class="mobile_nav_items">
             <a href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
-            <a href="<?= BASEURL ?>/lihat_petani"><i class="fas fa-users"></i><span>PETANI</span></a>
-            <a href="#"><i class="fas fa-database"></i><span>STOK KAKAO</span></a>
-            <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK KAKAO</span></a>
-            <a href="#"><i class="fas fa-box-open"></i><span>JUMLAH PRODUKSI</span></a>
-            <a href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK STOK</span></a>
+            <a href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+            <a href="<?= BASEURL ?>/lihat_stok/1"><i class="fas fa-database"></i><span>STOK</span></a>
+            <a href="#"><i class="fas fa-box-open"></i><span>PRODUKSI</span></a>
+            <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK</span></a>
+            <a href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
             <a href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
         </div>
     </div>
@@ -44,11 +44,11 @@
     <!--sidebar start-->
     <div class="sidebar">
         <a href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
-        <a href="<?= BASEURL ?>/lihat_petani"><i class="fas fa-users"></i><span>PETANI</span></a>
-        <a href="#"><i class="fas fa-database"></i><span>STOK KAKAO</span></a>
-        <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK KAKAO</span></a>
-        <a href="#"><i class="fas fa-box-open"></i><span>JUMLAH PRODUKSI</span></a>
-        <a href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK STOK</span></a>
+        <a href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+        <a href="<?= BASEURL ?>/lihat_stok/1"><i class="fas fa-database"></i><span>STOK</span></a>
+        <a href="#"><i class="fas fa-box-open"></i><span>PRODUKSI</span></a>
+        <a href="#"><i class="fas fa-dice-d6"></i><span>PRODUK</span></a>
+        <a href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
         <a href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
     </div>
     <!--sidebar end-->

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Okt 2021 pada 07.55
+-- Waktu pembuatan: 13 Okt 2021 pada 14.04
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -63,7 +63,9 @@ INSERT INTO `kategori` (`id`, `nama_kategori`, `grup`) VALUES
 (23, 'Wonodadi', 'kecamatan'),
 (24, 'Wonotirto', 'kecamatan'),
 (25, 'Aktif', 'status_anggota'),
-(26, 'Tidak Aktif', 'status_anggota');
+(26, 'Tidak Aktif', 'status_anggota'),
+(27, 'Kering', 'status_kakao'),
+(28, 'Basah', 'status_kakao');
 
 -- --------------------------------------------------------
 
@@ -76,7 +78,6 @@ CREATE TABLE `petani` (
   `nama_petani` varchar(60) COLLATE utf8_bin NOT NULL,
   `tanggal_lahir` date NOT NULL,
   `alamat_kec` int(11) NOT NULL,
-  `status_lahan` int(11) NOT NULL,
   `status_anggota` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -84,25 +85,53 @@ CREATE TABLE `petani` (
 -- Dumping data untuk tabel `petani`
 --
 
-INSERT INTO `petani` (`id_petani`, `nama_petani`, `tanggal_lahir`, `alamat_kec`, `status_lahan`, `status_anggota`) VALUES
-(2, 'Suwarno', '1972-01-06', 8, 1, 25),
-(3, 'Eko', '1973-10-12', 8, 2, 25),
-(4, 'Noto', '1968-10-13', 8, 2, 25),
-(8, 'Karyono', '1953-09-27', 24, 2, 25),
-(9, 'Handoko', '1965-05-06', 8, 2, 25),
-(10, 'Edi', '1985-06-01', 3, 2, 25),
-(11, 'Sukarli', '1966-07-06', 24, 2, 25),
-(12, 'Mustaji', '1948-03-26', 9, 2, 25),
-(13, 'Basori', '1958-12-01', 11, 2, 25),
-(14, 'Harsono', '1960-04-13', 8, 2, 25),
-(15, 'Samsul', '1953-08-02', 5, 2, 25),
-(16, 'Topik', '1968-07-02', 13, 2, 25),
-(17, 'Ridwan', '1975-05-02', 3, 2, 25),
-(18, 'Amin', '1973-03-05', 20, 2, 25),
-(19, 'Sindu', '1968-05-19', 20, 2, 25),
-(20, 'Didik', '1976-06-21', 10, 2, 25),
-(21, 'Agus', '1963-11-06', 20, 2, 25),
-(22, 'Dayat', '1972-05-22', 6, 2, 25);
+INSERT INTO `petani` (`id_petani`, `nama_petani`, `tanggal_lahir`, `alamat_kec`, `status_anggota`) VALUES
+(2, 'Suwarno', '1972-01-06', 8, 25),
+(3, 'Eko', '1973-10-12', 8, 25),
+(4, 'Noto', '1968-10-13', 8, 25),
+(8, 'Karyono', '1953-09-27', 24, 25),
+(9, 'Handoko', '1965-05-06', 8, 25),
+(10, 'Edi', '1985-06-01', 3, 25),
+(11, 'Sukarli', '1966-07-06', 24, 25),
+(12, 'Mustaji', '1948-03-26', 9, 25),
+(13, 'Basori', '1958-12-01', 11, 25),
+(14, 'Harsono', '1960-04-13', 8, 25),
+(15, 'Samsul', '1953-08-02', 5, 25),
+(16, 'Topik', '1968-07-02', 13, 25),
+(17, 'Ridwan', '1975-05-02', 3, 25),
+(18, 'Amin', '1973-03-05', 20, 25),
+(19, 'Sindu', '1968-05-19', 20, 25),
+(20, 'Didik', '1976-06-21', 10, 25),
+(21, 'Agus', '1963-11-06', 20, 25),
+(22, 'Dayat', '1972-05-22', 6, 25),
+(25, 'Subandi', '1975-07-11', 6, 25),
+(26, 'Hari Setiawan', '1984-02-24', 18, 26),
+(27, 'Supryono', '1982-01-03', 7, 25);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stok_kakao`
+--
+
+CREATE TABLE `stok_kakao` (
+  `id_stok` int(11) NOT NULL,
+  `tanggal_setor` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
+  `nama_petani` int(11) NOT NULL,
+  `stok_masuk` int(11) NOT NULL,
+  `status_kakao` int(11) NOT NULL,
+  `harga` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data untuk tabel `stok_kakao`
+--
+
+INSERT INTO `stok_kakao` (`id_stok`, `tanggal_setor`, `nama_petani`, `stok_masuk`, `status_kakao`, `harga`) VALUES
+(1, '2021-10-11 13:18:56', 3, 200, 28, 15000),
+(2, '2021-10-11 13:22:27', 3, 15, 27, 25000),
+(3, '2021-10-10 10:12:18', 8, 10, 27, 11000),
+(6, '2021-10-13 11:21:43', 4, 15, 27, 25000);
 
 -- --------------------------------------------------------
 
@@ -112,8 +141,8 @@ INSERT INTO `petani` (`id_petani`, `nama_petani`, `tanggal_lahir`, `alamat_kec`,
 
 CREATE TABLE `user` (
   `id_user` int(11) NOT NULL,
-  `email` varchar(60) COLLATE utf8_bin NOT NULL,
-  `password` varchar(20) COLLATE utf8_bin NOT NULL,
+  `email` varchar(30) COLLATE utf8_bin NOT NULL,
+  `password` varchar(10) COLLATE utf8_bin NOT NULL,
   `nama` varchar(255) COLLATE utf8_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
 
@@ -143,6 +172,12 @@ ALTER TABLE `petani`
   ADD PRIMARY KEY (`id_petani`);
 
 --
+-- Indeks untuk tabel `stok_kakao`
+--
+ALTER TABLE `stok_kakao`
+  ADD PRIMARY KEY (`id_stok`);
+
+--
 -- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
@@ -156,19 +191,41 @@ ALTER TABLE `user`
 -- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=27;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 
 --
 -- AUTO_INCREMENT untuk tabel `petani`
 --
 ALTER TABLE `petani`
-  MODIFY `id_petani` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_petani` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+
+--
+-- AUTO_INCREMENT untuk tabel `stok_kakao`
+--
+ALTER TABLE `stok_kakao`
+  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+--
+
+--
+-- Ketidakleluasaan untuk tabel `petani`
+--
+ALTER TABLE `petani`
+  ADD CONSTRAINT `petani_ibfk_1` FOREIGN KEY (`id_petani`) REFERENCES `kategori` (`id`);
+
+--
+-- Ketidakleluasaan untuk tabel `stok_kakao`
+--
+ALTER TABLE `stok_kakao`
+  ADD CONSTRAINT `stok_kakao_ibfk_1` FOREIGN KEY (`id_stok`) REFERENCES `kategori` (`id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
