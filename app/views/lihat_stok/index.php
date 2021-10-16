@@ -83,8 +83,8 @@
                             <th><?= $value['nama_petani'] ?></th>
                             <th><?= $value['stok_masuk'] ?></th>
                             <th><?= $value['status_kakao'] ?></th>
-                            <th><?= $value['harga'] ?></th>
-                            <th><?= $value['harga']*$value['stok_masuk'] ?></th>
+                            <th style="text-align: right;"><?= "Rp " . number_format($value['harga'], 2, ",", ".") ?></th>
+                            <th style="text-align: right;"><?= "Rp " . number_format($value['harga']*$value['stok_masuk'], 2, ",", ".") ?></th>
                             <th><a class = 'edit' href = '<?= BASEURL;?>/ubah_stok/<?= $value['id_stok']?>'><i class="fas fa-edit"></i> Ubah</a><a href="<?= BASEURL;?>/hapus_stok/hapus/<?= $value['id_stok']?>" class="hapus"><i class="fas fa-trash"></i> Hapus</a></th>
                         </tr>
                         <?php } ?>

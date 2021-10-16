@@ -9,7 +9,7 @@ class Petani_model {
         $this->db = new Database;
     }
 
-    public function getList($page)
+    public function getList($page = null, $column = null, $orderBy = null)
     {
         // $this->db->query('SELECT petani.*, alamat.nama_kategori AS alamat, status_lahan.nama_kategori AS status_lahan, status_anggota.nama_kategori AS status_anggota FROM ' . $this->table . '  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota');
         
@@ -18,16 +18,36 @@ class Petani_model {
         $data = [];
 
         $jumlahDataSetiapPage = 10;
-        $this -> db -> query("SELECT petani.*, alamat.nama_kategori AS alamat, status_anggota.nama_kategori AS status_anggota FROM `" . $this->table . "`  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota");
-        $jumlahData = $this -> db -> resultSet();
-        $jumlahData = count($jumlahData);
+        $query = "SELECT petani.*, alamat.nama_kategori AS alamat, status_anggota.nama_kategori AS status_anggota FROM `" . $this->table . "`  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota";
+
+        if ($column != null && $orderBy != null) {
+            if ($column == 'status') {
+                $query .= " ORDER BY status_anggota.nama_kategori $orderBy";
+            } 
+        }
+
+        $this -> db -> query($query);
+        $daftarData = $this -> db -> resultSet();
+        $jumlahData = count($daftarData);
 
         $jumlahPage = ceil($jumlahData / $jumlahDataSetiapPage);
         $halamanSaatIni = ( isset($page) ) ? $page : 1;
         $dataPertama = ($jumlahDataSetiapPage * $halamanSaatIni) - $jumlahDataSetiapPage;
 
-        $this -> db -> query("SELECT petani.*, alamat.nama_kategori AS alamat, status_anggota.nama_kategori AS status_anggota FROM `" . $this->table . "`  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota LIMIT $dataPertama, $jumlahDataSetiapPage");
-        $daftarData = $this -> db -> resultSet();
+        if ($page != null) {
+            $query = "SELECT petani.*, alamat.nama_kategori AS alamat, status_anggota.nama_kategori AS status_anggota FROM `" . $this->table . "`  JOIN kategori AS alamat ON alamat.id = petani.alamat_kec JOIN kategori AS status_anggota ON status_anggota.id = petani.status_anggota";
+
+            if ($column != null && $orderBy != null) {
+                if ($column == 'status') {
+                    $query .= " ORDER BY status_anggota.nama_kategori $orderBy";
+                } 
+            }
+
+            $query .= " LIMIT $dataPertama, $jumlahDataSetiapPage";
+
+            $this -> db -> query($query);
+            $daftarData = $this -> db -> resultSet();
+        }
 
         $data['list_data'] = $daftarData;
         $data['halaman_saat_ini'] = $halamanSaatIni;

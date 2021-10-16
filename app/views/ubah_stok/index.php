@@ -70,13 +70,9 @@
                             <div style="width: 100%;">
                                 <select class="select" name="nama_petani" id="nama_petani" required oninvalid="this.setCustomValidity('Pilih Nama Petani')" oninput="setCustomValidity('')">
                                     <option value="" <?= (isset($data['nama_petani']) && $data['nama_petani'] == '') ? 'selected' : '' ?>>-Pilih Nama Petani-</option>
-                                    <option value="2" <?= (isset($data['nama_petani']) && $data['nama_petani'] == 2) ? 'selected' : '' ?>>Suwarno</option>
-                                    <option value="3" <?= (isset($data['nama_petani']) && $data['nama_petani'] == 3) ? 'selected' : '' ?>>Eko</option>
-                                    <option value="4" <?= (isset($data['nama_petani']) && $data['nama_petani'] == 4) ? 'selected' : '' ?>>Noto</option>
-                                    <option value="8" <?= (isset($data['nama_petani']) && $data['nama_petani'] == 8) ? 'selected' : '' ?>>Karyono</option>
-                                    <option value="9" <?= (isset($data['nama_petani']) && $data['nama_petani'] == 9) ? 'selected' : '' ?>>Handoko</option>
-                                    <option value="10" <?= (isset($data['nama_petani']) && $data['nama_petani'] == 10) ? 'selected' : '' ?>>Edi</option>
-                                    <option value="11" <?= (isset($data['nama_petani']) && $data['nama_petani'] == 11) ? 'selected' : '' ?>>Sukarli</option>
+                                    <?php foreach ($data['petani'] as $value) { ?>
+                                        <option value="<?= $value['id_petani'] ?>" <?= (isset($data['nama_petani']) && $data['nama_petani'] == $value['id_petani']) ? 'selected' : '' ?>><?= $value['nama_petani'] ?></option>
+                                    <?php } ?>
                                 </select>
                             </div>
                         </div>

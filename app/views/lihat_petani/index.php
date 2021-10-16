@@ -63,6 +63,13 @@
                     <br><br>
                     <a href="<?= BASEURL ?>/tambah_petani" class="tambah"><i class="fas fa-user-plus"></i><span> Tambah</span></a>
                 </div>
+                <?php 
+    
+                $explodeUrl = explode('/', $_GET['url']);
+                $urlContinue = !is_numeric(end($explodeUrl)) ? '/' . implode('/', array_slice($explodeUrl, -2, 2, true)) : '';
+                $isDesc = !is_numeric(end($explodeUrl)) && end($explodeUrl) == 'desc' ? 1 : 0;
+
+                ?>
                 </div>
                 <div class="card_table2">
                     <table class="tabelMahasiswa" width="60%">
@@ -71,7 +78,7 @@
                             <th>Nama Petani</th>
                             <th>Tanggal Lahir</th>
                             <th>Alamat</th>
-                            <th>Status Keanggotaan</th>
+                            <th>Status Keanggotaan <a href="<?= BASEURL ?>/lihat_petani/<?= $data['petani']['halaman_saat_ini']; ?>/status/<?= $isDesc ? 'asc' : 'desc' ?>"><i class="fas fa-angle-<?= $isDesc ? 'down' : 'up' ?>"></i></a></th>
                             <th>Action</th>
                         </tr>
                         <?php foreach ($data['petani']['list_data'] as $key => $value) { ?>
@@ -89,19 +96,19 @@
                     <br>
 
                     <?php if($data['petani']['halaman_saat_ini'] > 1): ?>
-                        <a href = "<?= BASEURL ?>/lihat_petani/<?= $data['petani']['halaman_saat_ini'] - 1; ?>"  class = 'pageLebih'>&laquo;</a>
+                        <a href = "<?= BASEURL ?>/lihat_petani/<?= ($data['petani']['halaman_saat_ini'] - 1) . $urlContinue; ?>"  class = 'pageLebih'>&laquo;</a>
                     <?php endif; ?>
 
                     <?php for($p = 1; $p <= $data['petani']['jumlah_halaman']; $p++): ?>
                         <?php if($p == $data['petani']['halaman_saat_ini']): ?>
-                            <a href= "<?= BASEURL ?>/lihat_petani/<?= $p; ?>" class = 'page_aktif'><?= $p; ?></a>
+                            <a href= "<?= BASEURL ?>/lihat_petani/<?= $p . $urlContinue; ?>" class = 'page_aktif'><?= $p; ?></a>
                         <?php else: ?>
-                            <a href= "<?= BASEURL ?>/lihat_petani/<?= $p; ?>"  class = 'page'><?= $p; ?></a>
+                            <a href= "<?= BASEURL ?>/lihat_petani/<?= $p . $urlContinue; ?>"  class = 'page'><?= $p; ?></a>
                         <?php endif; ?>
                     <?php endfor; ?>
                     
                     <?php if($data['petani']['halaman_saat_ini'] < $data['petani']['jumlah_halaman']): ?>
-                        <a href = "<?= BASEURL ?>/lihat_petani/<?= $data['petani']['halaman_saat_ini'] + 1; ?>"  class = 'pageLebih'>&raquo;</a>
+                        <a href = "<?= BASEURL ?>/lihat_petani/<?= ($data['petani']['halaman_saat_ini'] + 1) . $urlContinue; ?>"  class = 'pageLebih'>&raquo;</a>
                     <?php endif; ?>
 
                     <br>
