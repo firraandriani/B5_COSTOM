@@ -56,13 +56,36 @@ header{
   overflow-y: auto;
 }
 
-.sidebar a{
+.menu{
   color: #fff;
   display: block;
   width: 100%;
   line-height: 60px;
   text-decoration: none;
-  padding-left: 40px;
+  padding-left: 15px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.menu2{
+  color: #fff;
+  display: block;
+  width: 100%;
+  text-decoration: none;
+  padding-left: 15px;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.sub_menu{
+  color: #fff;
+  display: block;
+  width: 100%;
+  line-height: 50px;
+  text-decoration: none;
+  padding-left: 35px;
   box-sizing: border-box;
   transition: 0.5s;
   transition-property: background;
@@ -102,7 +125,7 @@ label #sidebar_btn:hover{
 
 #check:checked ~ .sidebar a{
   font-size: 20px;
-  margin-left: 165px;
+  margin-left: 180px;
   width: 100%;
 }
 
@@ -263,12 +286,35 @@ ul {
   display: none;
 }
 
-.mobile_nav_items a{
+.mobile_nav_items .menu{
   color: #fff;
   display: block;
-  text-align: center;
+  text-align: left;
   letter-spacing: 1px;
   line-height: 60px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.mobile_nav_items .menu2{
+  color: #fff;
+  display: block;
+  text-align: left;
+  letter-spacing: 1px;
+  text-decoration: none;
+  box-sizing: border-box;
+  transition: 0.5s;
+  transition-property: background;
+}
+
+.mobile_nav_items .sub_menu{
+  color: #fff;
+  display: block;
+  text-align: left;
+  letter-spacing: 1px;
+  line-height: 50px;
   text-decoration: none;
   box-sizing: border-box;
   transition: 0.5s;

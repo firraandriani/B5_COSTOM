@@ -4,7 +4,7 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap" rel="stylesheet">
-	<title>Stok Masuk Kakao | Kampung Coklat</title>
+	<title>Stok Keluar Produk | Kampung Coklat</title>
 	<link href="<?= BASEURL ?>/css/tambah_petani.css" rel="stylesheet" type="text/css">
     <link href='http://localhost/KampungCoklat/public/img/icon_judul.jpg' rel='shortcut icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
@@ -64,47 +64,31 @@
 
     <div class="content">
         <div class="card">
-            <h1>Tambah Stok Masuk Kakao</h1>
+            <h1>Tambah Stok Keluar Produk</h1>
         </div>
         <div class="card_table">
             <div>
                 <div class="kotak">
-                <form action="<?= BASEURL ?>/tambah_stok/tambah" method="post">
+                <form action="<?= BASEURL ?>/tambah_SKP/tambah" method="post">
                     <div class="form">
                         <div class="inputfield">
-                            <input name="id" type="hidden" value="<?= $data['id_stok'] ?? '' ?>">
+                            <input name="id" type="hidden" value="<?= $data['id_keluar_produk'] ?? '' ?>">
                         </div>
                         <div class="inputfield">
-                            <label class="dataDiri">Nama Petani</label>
+                            <label class="dataDiri">Nama Produk</label>
                             <div style="width: 100%;">
-                                <select class="select" name="nama_petani" id="nama_petani" required oninvalid="this.setCustomValidity('Pilih Nama Petani')" oninput="setCustomValidity('')">
-                                    <option value="" <?= (isset($data['nama_petani']) && $data['nama_petani'] == '') ? 'selected' : '' ?>>-Pilih Nama Petani-</option>
-                                    <?php foreach ($data['petani'] as $value) { ?>
-                                        <option value="<?= $value['id_petani'] ?>" <?= (isset($data['nama_petani']) && $data['nama_petani'] == 2) ? 'selected' : '' ?>><?= $value['nama_petani'] ?></option>
+                                <select class="select" name="nama_produk" id="nama_produk" required oninvalid="this.setCustomValidity('Pilih Nama Produk')" oninput="setCustomValidity('')">
+                                    <option value="" <?= (isset($data['nama_produk']) && $data['nama_produk'] == '') ? 'selected' : '' ?>>-Pilih Nama Produk-</option>
+                                    <?php foreach ($data['produk'] as $value) { ?>
+                                        <option value="<?= $value['id_produk'] ?>" <?= (isset($data['nama_produk']) && $data['nama_produk'] == 2) ? 'selected' : '' ?>><?= $value['nama_produk'] ?></option>
                                     <?php } ?>
                                 </select>
                             </div>
                         </div>
                         <div class="inputfield">
-                            <label class="dataDiri">Stok Masuk(kg)</label>
+                            <label class="dataDiri">Stok Keluar(pcs)</label>
                             <div style="width: 100%;">
-                                <input class="diri" id="stok_masuk" name="stok_masuk" value="<?= $data['stok_masuk'] ?? '' ?>" required oninvalid="this.setCustomValidity('Stok masuk tidak boleh kosong')" oninput="setCustomValidity('')">
-                            </div>
-                        </div>
-                        <div class="inputfield">
-					        <label class="dataDiri">Status Kakao</label>
-                            <div style="width: 100%;">
-                                <select class="select" name="status_kakao" id="status_kakao" required oninvalid="this.setCustomValidity('Pilih Status Kakao')" oninput="setCustomValidity('')">
-                                    <option value="" <?= (isset($data['status_kakao']) && $data['status_kakao'] == '') ? 'selected' : '' ?>>-Pilih Status Kakao-</option>
-                                    <option value="27" <?= (isset($data['status_kakao']) && $data['status_kakao'] == 27) ? 'selected' : '' ?>>Kering</option>
-                                    <option value="28" <?= (isset($data['status_kakao']) && $data['status_kakao'] == 28) ? 'selected' : '' ?>>Basah</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="inputfield">
-                            <label class="dataDiri">Harga(kg)</label>
-                            <div style="width: 100%;">
-                                <input class="diri" id="harga" name="harga" value="<?= $data['harga'] ?? '' ?>" required oninvalid="this.setCustomValidity('Harga tidak boleh kosong')" oninput="setCustomValidity('')">
+                                <input class="diri" id="stok_keluar" name="stok_keluar" value="<?= $data['stok_keluar'] ?? '' ?>" required oninvalid="this.setCustomValidity('Stok keluar tidak boleh kosong')" oninput="setCustomValidity('')">
                             </div>
                         </div>
                         <div class="inputfield">

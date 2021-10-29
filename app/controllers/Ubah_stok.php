@@ -5,7 +5,7 @@ class Ubah_stok extends Controller {
     {
         session_start();
         $data = $this->model('Stok_model')->getStokKakaoById($id);
-        $listPetani = $this->model('Petani_model')->getList();
+        $listPetani = $this->model('Petani_model')->getListPetani();
         $data['petani'] = $listPetani['list_data'];
         $this->view('ubah_stok/index', $data);
         $_SESSION['is_update'] = 0;  

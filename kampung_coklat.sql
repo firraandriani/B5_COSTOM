@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 13 Okt 2021 pada 14.04
+-- Waktu pembuatan: 29 Okt 2021 pada 02.11
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -111,6 +111,39 @@ INSERT INTO `petani` (`id_petani`, `nama_petani`, `tanggal_lahir`, `alamat_kec`,
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `produk`
+--
+
+CREATE TABLE `produk` (
+  `id_produk` int(11) NOT NULL,
+  `nama_produk` varchar(30) COLLATE utf8_bin NOT NULL,
+  `berat_bersih` int(11) NOT NULL,
+  `harga` int(11) NOT NULL,
+  `produksi_kakao_kering` int(11) NOT NULL,
+  `produksi_kakao_basah` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data untuk tabel `produk`
+--
+
+INSERT INTO `produk` (`id_produk`, `nama_produk`, `berat_bersih`, `harga`, `produksi_kakao_kering`, `produksi_kakao_basah`) VALUES
+(1, 'Coklat Putih', 200, 10000, 12, 18),
+(2, 'Coklat', 122, 10000, 11, 111),
+(3, 'Coklatd', 200, 15000, 400, 23),
+(4, 'Coklat Stroberi', 200, 15000, 400, 23),
+(5, 'Coklat1', 200, 15000, 400, 23),
+(6, 'Coklat Strobe1ri', 200, 15000, 400, 23),
+(7, 'Coklatd12', 200, 15000, 400, 12),
+(8, 'Coklat 11', 200, 15000, 400, 23),
+(9, 'Coklat dww', 200, 122, 400, 23),
+(10, 'Coklat Vanila44', 2001, 15000, 400, 12),
+(11, 'Coklat sqq', 200, 25000, 400, 23),
+(12, 'Coklat Stroberih', 200, 15000, 400, 23);
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `stok_kakao`
 --
 
@@ -128,10 +161,96 @@ CREATE TABLE `stok_kakao` (
 --
 
 INSERT INTO `stok_kakao` (`id_stok`, `tanggal_setor`, `nama_petani`, `stok_masuk`, `status_kakao`, `harga`) VALUES
-(1, '2021-10-11 13:18:56', 3, 200, 28, 15000),
-(2, '2021-10-11 13:22:27', 3, 15, 27, 25000),
-(3, '2021-10-10 10:12:18', 8, 10, 27, 11000),
-(6, '2021-10-13 11:21:43', 4, 15, 27, 25000);
+(1, '2021-10-14 04:21:30', 2, 476, 28, 15000),
+(2, '2021-10-14 04:21:47', 3, 501, 27, 25000),
+(3, '2021-10-14 04:22:34', 4, 382, 28, 15000),
+(6, '2021-10-14 04:22:48', 8, 654, 27, 25000),
+(7, '2021-10-14 04:23:52', 11, 416, 27, 25000),
+(8, '2021-10-14 04:24:07', 13, 576, 28, 15000),
+(9, '2021-10-14 04:24:21', 15, 511, 28, 15000),
+(10, '2021-10-14 04:24:43', 19, 443, 27, 25000),
+(11, '2021-10-14 04:25:16', 22, 483, 28, 15000),
+(12, '2021-10-14 04:25:33', 17, 589, 27, 25000),
+(13, '2021-10-14 04:25:48', 10, 571, 28, 15000),
+(14, '2021-10-14 04:26:01', 12, 364, 27, 25000),
+(15, '2021-10-14 04:26:13', 14, 562, 28, 15000),
+(16, '2021-10-14 04:26:28', 9, 531, 28, 15000),
+(17, '2021-10-14 04:27:18', 20, 231, 27, 25000),
+(18, '2021-10-14 04:28:31', 16, 488, 28, 15000),
+(19, '2021-10-14 04:29:11', 18, 654, 28, 15000),
+(20, '2021-10-14 04:29:45', 21, 287, 27, 25000),
+(21, '2021-10-14 04:30:03', 20, 574, 28, 25000),
+(22, '2021-10-14 04:30:47', 27, 482, 28, 15000);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stok_keluar_kakao`
+--
+
+CREATE TABLE `stok_keluar_kakao` (
+  `id_keluar_kakao` int(11) NOT NULL,
+  `tanggal_keluar` timestamp NOT NULL DEFAULT current_timestamp(),
+  `nama_produk` int(11) NOT NULL,
+  `stok_keluar` int(11) NOT NULL,
+  `status_kakao` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data untuk tabel `stok_keluar_kakao`
+--
+
+INSERT INTO `stok_keluar_kakao` (`id_keluar_kakao`, `tanggal_keluar`, `nama_produk`, `stok_keluar`, `status_kakao`) VALUES
+(1, '2021-10-22 14:50:00', 2, 2002, 27),
+(2, '2021-10-22 14:51:37', 3, 200, 28),
+(3, '2021-10-22 14:54:16', 3, 2002, 28),
+(6, '2021-10-22 15:00:01', 3, 200, 28),
+(7, '2021-10-23 01:14:58', 1, 12, 27),
+(8, '2021-10-23 01:15:11', 1, 11, 27);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stok_keluar_produk`
+--
+
+CREATE TABLE `stok_keluar_produk` (
+  `id_keluar_produk` int(11) NOT NULL,
+  `tanggal_keluar` timestamp NOT NULL DEFAULT current_timestamp(),
+  `nama_produk` int(11) NOT NULL,
+  `stok_keluar` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data untuk tabel `stok_keluar_produk`
+--
+
+INSERT INTO `stok_keluar_produk` (`id_keluar_produk`, `tanggal_keluar`, `nama_produk`, `stok_keluar`) VALUES
+(1, '2021-10-22 16:55:51', 2, 200),
+(2, '2021-10-22 16:55:51', 3, 122);
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `stok_masuk_produk`
+--
+
+CREATE TABLE `stok_masuk_produk` (
+  `id_masuk_produk` int(11) NOT NULL,
+  `tanggal_masuk` timestamp NOT NULL DEFAULT current_timestamp(),
+  `nama_produk` int(11) NOT NULL,
+  `stok_masuk` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+
+--
+-- Dumping data untuk tabel `stok_masuk_produk`
+--
+
+INSERT INTO `stok_masuk_produk` (`id_masuk_produk`, `tanggal_masuk`, `nama_produk`, `stok_masuk`) VALUES
+(1, '2021-10-22 16:56:09', 2, 200),
+(2, '2021-10-22 16:56:09', 3, 12),
+(3, '2021-10-23 07:25:14', 2, 15),
+(4, '2021-10-23 07:27:04', 4, 11);
 
 -- --------------------------------------------------------
 
@@ -172,10 +291,34 @@ ALTER TABLE `petani`
   ADD PRIMARY KEY (`id_petani`);
 
 --
+-- Indeks untuk tabel `produk`
+--
+ALTER TABLE `produk`
+  ADD PRIMARY KEY (`id_produk`);
+
+--
 -- Indeks untuk tabel `stok_kakao`
 --
 ALTER TABLE `stok_kakao`
   ADD PRIMARY KEY (`id_stok`);
+
+--
+-- Indeks untuk tabel `stok_keluar_kakao`
+--
+ALTER TABLE `stok_keluar_kakao`
+  ADD PRIMARY KEY (`id_keluar_kakao`);
+
+--
+-- Indeks untuk tabel `stok_keluar_produk`
+--
+ALTER TABLE `stok_keluar_produk`
+  ADD PRIMARY KEY (`id_keluar_produk`);
+
+--
+-- Indeks untuk tabel `stok_masuk_produk`
+--
+ALTER TABLE `stok_masuk_produk`
+  ADD PRIMARY KEY (`id_masuk_produk`);
 
 --
 -- Indeks untuk tabel `user`
@@ -197,13 +340,37 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `petani`
 --
 ALTER TABLE `petani`
-  MODIFY `id_petani` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id_petani` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT untuk tabel `produk`
+--
+ALTER TABLE `produk`
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `stok_kakao`
 --
 ALTER TABLE `stok_kakao`
-  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+
+--
+-- AUTO_INCREMENT untuk tabel `stok_keluar_kakao`
+--
+ALTER TABLE `stok_keluar_kakao`
+  MODIFY `id_keluar_kakao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+
+--
+-- AUTO_INCREMENT untuk tabel `stok_keluar_produk`
+--
+ALTER TABLE `stok_keluar_produk`
+  MODIFY `id_keluar_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
+-- AUTO_INCREMENT untuk tabel `stok_masuk_produk`
+--
+ALTER TABLE `stok_masuk_produk`
+  MODIFY `id_masuk_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`

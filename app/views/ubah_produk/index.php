@@ -1,18 +1,17 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Pacifico&display=swap" rel="stylesheet">
-	<title>Stok Masuk Kakao | Kampung Coklat</title>
+	<title>Produk | Kampung Coklat</title>
 	<link href="<?= BASEURL ?>/css/tambah_petani.css" rel="stylesheet" type="text/css">
     <link href='http://localhost/KampungCoklat/public/img/icon_judul.jpg' rel='shortcut icon'>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" charset="utf-8"></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </head>
 <body>
-    <input type="checkbox" id="check">
+<input type="checkbox" id="check">
     <!--header area start-->
     <header>
         <label for="check">
@@ -64,68 +63,55 @@
 
     <div class="content">
         <div class="card">
-            <h1>Tambah Stok Masuk Kakao</h1>
+            <h1>Ubah Data Produk</h1>
         </div>
         <div class="card_table">
             <div>
                 <div class="kotak">
-                <form action="<?= BASEURL ?>/tambah_stok/tambah" method="post">
+                <form action="<?= BASEURL ?>/Ubah_produk/update" method="post">
                     <div class="form">
                         <div class="inputfield">
-                            <input name="id" type="hidden" value="<?= $data['id_stok'] ?? '' ?>">
+                            <input name="id_produk" type="hidden" value="<?= $data['id_produk'] ?? '' ?>">
                         </div>
                         <div class="inputfield">
-                            <label class="dataDiri">Nama Petani</label>
-                            <div style="width: 100%;">
-                                <select class="select" name="nama_petani" id="nama_petani" required oninvalid="this.setCustomValidity('Pilih Nama Petani')" oninput="setCustomValidity('')">
-                                    <option value="" <?= (isset($data['nama_petani']) && $data['nama_petani'] == '') ? 'selected' : '' ?>>-Pilih Nama Petani-</option>
-                                    <?php foreach ($data['petani'] as $value) { ?>
-                                        <option value="<?= $value['id_petani'] ?>" <?= (isset($data['nama_petani']) && $data['nama_petani'] == 2) ? 'selected' : '' ?>><?= $value['nama_petani'] ?></option>
-                                    <?php } ?>
-                                </select>
-                            </div>
+                            <label class="dataDiri">Nama Produk</label>
+                            <input class="diri" id="nama_produk" name="nama_produk" type="text" placeholder="Masukkan Nama Produk" value="<?= $data['nama_produk'] ?? '' ?>" required oninvalid="this.setCustomValidity('Nama produk tidak boleh kosong')" oninput="setCustomValidity('')">
                         </div>
                         <div class="inputfield">
-                            <label class="dataDiri">Stok Masuk(kg)</label>
-                            <div style="width: 100%;">
-                                <input class="diri" id="stok_masuk" name="stok_masuk" value="<?= $data['stok_masuk'] ?? '' ?>" required oninvalid="this.setCustomValidity('Stok masuk tidak boleh kosong')" oninput="setCustomValidity('')">
-                            </div>
+                            <label class="dataDiri">Berat Bersih(gr)</label>
+                            <input class="diri" id="berat_bersih" type="text" name="berat_bersih" placeholder="Masukkan Berat Bersih" value="<?= $data['berat_bersih'] ?? '' ?>" required oninvalid="this.setCustomValidity('Berat bersih tidak boleh kosong')" oninput="setCustomValidity('')">
                         </div>
                         <div class="inputfield">
-					        <label class="dataDiri">Status Kakao</label>
-                            <div style="width: 100%;">
-                                <select class="select" name="status_kakao" id="status_kakao" required oninvalid="this.setCustomValidity('Pilih Status Kakao')" oninput="setCustomValidity('')">
-                                    <option value="" <?= (isset($data['status_kakao']) && $data['status_kakao'] == '') ? 'selected' : '' ?>>-Pilih Status Kakao-</option>
-                                    <option value="27" <?= (isset($data['status_kakao']) && $data['status_kakao'] == 27) ? 'selected' : '' ?>>Kering</option>
-                                    <option value="28" <?= (isset($data['status_kakao']) && $data['status_kakao'] == 28) ? 'selected' : '' ?>>Basah</option>
-                                </select>
-                            </div>
+                            <label class="dataDiri">Harga/pcs</label>
+                            <input class="diri" id="harga" name="harga" type="text" placeholder="Masukkan Harga Produk" value="<?= $data['harga'] ?? '' ?>" required oninvalid="this.setCustomValidity('Harga produk tidak boleh kosong')" oninput="setCustomValidity('')">
                         </div>
                         <div class="inputfield">
-                            <label class="dataDiri">Harga(kg)</label>
-                            <div style="width: 100%;">
-                                <input class="diri" id="harga" name="harga" value="<?= $data['harga'] ?? '' ?>" required oninvalid="this.setCustomValidity('Harga tidak boleh kosong')" oninput="setCustomValidity('')">
-                            </div>
+                            <label class="dataDiri">Produksi/1kg Kakao Kering</label>
+                            <input class="diri" id="produksi_kakao_kering" name="produksi_kakao_kering" type="text" placeholder="Masukkan Produksi/1kg Kakao Kering" value="<?= $data['produksi_kakao_kering'] ?? '' ?>" required oninvalid="this.setCustomValidity('Produksi/1kg Kakao Kering tidak boleh kosong')" oninput="setCustomValidity('')">
+                        </div> 
+                        <div class="inputfield">
+                            <label class="dataDiri">Produksi/1kg Kakao Basah</label>
+                            <input class="diri" id="produksi_kakao_basah" name="produksi_kakao_basah" type="text" placeholder="Masukkan Produksi/1kg Kakao Basah" value="<?= $data['produksi_kakao_basah'] ?? '' ?>" required oninvalid="this.setCustomValidity('Produksi/1kg Kakao Basah tidak boleh kosong')" oninput="setCustomValidity('')">
                         </div>
                         <div class="inputfield">
                             <label class="dataDiri"> </label>
                             <div style="width: 100%">
-                                <input type="checkbox" id = "klik" <?= (isset($_SESSION['is_create']) && $_SESSION['is_create'] == 1) ? 'checked' : '' ?>>
+                                <input type="checkbox" id = "klik" <?= (isset($_SESSION['is_update']) && $_SESSION['is_update'] == 1) ? 'checked' : '' ?>>
                                 <button class="click-me"><label for="klik">SIMPAN</label></button>
-                                <?php if (isset($_SESSION['is_create']) && $_SESSION['is_create'] == 1) { ?>
+                                <?php if (isset($_SESSION['is_update']) && $_SESSION['is_update'] == 1) { ?>
                                 <div class="content1">
                                     <div class="header1">
-                                        <h2>Stok Kakao</h2>
+                                        <h2>Petani</h2>
                                         <label for="klik" class="fas fa-times"></label>
                                     </div>
                                     <label for="klik" class="fas fa-check"></label>
-                                    <p>Data Berhasil Ditambah</p>
+                                    <p>Data Berhasil Diubah</p>
                                     <div class="line"></div>
                                     <label for="klik" class="close-btn">OK</label>
                                 </div>
                                 <?php } ?>
                             </div>
-                        </div> 
+                        </div>  
                     </div>
                 </form>
                 </div>
