@@ -40,8 +40,8 @@
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-            <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-            <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+            <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+            <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
@@ -56,8 +56,8 @@
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-        <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-        <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+        <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+        <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
     </div>
     <!--sidebar end-->
 
@@ -117,7 +117,7 @@
 					        <label class="dataDiri">Status Keanggotaan</label>
                             <div style="width: 100%;">
                                 <select class="select" name="status_anggota" id="status_anggota" required oninvalid="this.setCustomValidity('Pilih Status Keanggotaan')" oninput="setCustomValidity('')">
-                                    <option value="" <?= (isset($data['status_anggota']) && $data['status_anggota'] == '') ? 'selected' : '' ?>>-Pilih Status Lahan-</option>
+                                    <option value="" <?= (isset($data['status_anggota']) && $data['status_anggota'] == '') ? 'selected' : '' ?>>-Pilih Status Keanggotaan-</option>
                                     <option value="25" <?= (isset($data['status_anggota']) && $data['status_anggota'] == 25) ? 'selected' : '' ?>>Aktif</option>
                                     <option value="26" <?= (isset($data['status_anggota']) && $data['status_anggota'] == 26) ? 'selected' : '' ?>>Tidak Aktif</option>
                                 </select>

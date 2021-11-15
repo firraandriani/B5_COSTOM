@@ -71,4 +71,40 @@ class SKK_model {
 
         return $this->db->rowCount();
     }
+
+    public function getStockOutReport($year)
+    {
+        $query = "SELECT 
+                    DATE_FORMAT(`stok_keluar_kakao`.`tanggal_keluar`, '%m-%Y') as date,
+                    SUM(`stok_keluar_kakao`.`stok_keluar`) as stok,
+                    `status_kakao`.`nama_kategori` as status_kakao
+                FROM `stok_keluar_kakao`
+                JOIN kategori as status_kakao ON `status_kakao`.id = `stok_keluar_kakao`.`status_kakao`
+                WHERE DATE_FORMAT(`stok_keluar_kakao`.`tanggal_keluar`, '%Y') = '$year'
+                GROUP BY `stok_keluar_kakao`.`status_kakao`, DATE_FORMAT(`stok_keluar_kakao`.`tanggal_keluar`, '%m-%Y')";
+
+        $this->db->query($query);
+        $result = $this->db->resultSet();
+
+        $stokKeluarKering = [];
+        $stokKeluarBasah = [];
+        foreach ($result as $x) {
+            if ($x['status_kakao'] == 'Kering') $stokKeluarKering[] = $x;
+            else if ($x['status_kakao'] == 'Basah') $stokKeluarBasah[] = $x;
+        }
+
+        $data = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $keyIndexStokKeluarKering = array_search(sprintf('%s-%s', $i < 10 ? '0' . $i : $i, $year), array_column($stokKeluarKering, 'date'));
+            $keyIndexStokKeluarBasah = array_search(sprintf('%s-%s', $i < 10 ? '0' . $i : $i, $year), array_column($stokKeluarBasah, 'date'));
+
+            if (is_numeric($keyIndexStokKeluarKering)) $data['stok_keluar_kering'][] = $stokKeluarKering[$keyIndexStokKeluarKering]['stok'];
+            else $data['stok_keluar_kering'][] = 0;
+
+            if (is_numeric($keyIndexStokKeluarBasah)) $data['stok_keluar_basah'][] = $stokKeluarBasah[$keyIndexStokKeluarBasah]['stok'];
+            else $data['stok_keluar_basah'][] = 0;
+        }
+
+        return $data;
+    }
 }

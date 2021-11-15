@@ -132,6 +132,7 @@ label #sidebar_btn:hover{
 .content{
   background: url('http://localhost/KampungCoklat/public/img/bg.jpg');
   background-position: center;
+  background-size: cover;
   height: auto;
   transition: 0.5s;
   width: (100% - 250px);
@@ -205,6 +206,7 @@ label #sidebar_btn:hover{
   font-family: Arial;
   font-weight: bold;
   color: white;
+  cursor: pointer;
 }
 .pageLebih {
   text-decoration: none;
@@ -238,12 +240,12 @@ label #sidebar_btn:hover{
   text-decoration: none;
   background-color: #de3645;
   padding: 10px 10px;
-  margin-left: 10px;
   text-align: center;
   border-radius: 10px;
   font-family: Arial;
   font-weight: bold;
   color: white;
+  cursor: pointer;
 }
 
 td, th {
@@ -275,6 +277,16 @@ th {
 	margin-bottom: 15px;
 	display: flex;
 	align-items: center;
+  width: 50%;
+}
+
+.kotak .form .inputfield2{
+	margin-bottom: 15px;
+	display: flex;
+	align-items: center;
+  width: 50%;
+  margin-left: 50%;
+  margin-top: -55px;
 }
 
 .dataDiri {
@@ -286,8 +298,8 @@ th {
 	font-weight: bold;
 }
 
-.kotak .form .inputfield .diri {
-	width: 100%;
+.diri {
+	width: 50%;
 	outline: none;
 	border-left: none;
 	border-right: none;
@@ -393,38 +405,21 @@ th {
 	margin-bottom: 0;
 }
 
-.button {
-	width: 20%;
-	height: 30px;
-	border: 2px solid #007bff;
-	background-color: #007bff;
-	border-radius: 5px;
-	color: #ffffff;
-	font-size: 13px;
-	float: right;
-	margin-top: 12px;
-	outline: none;
-	font-size: 16px;
-	font-weight: bold;
-	cursor: pointer;
+.hitung {
+	width: 15%;
+  outline: none;
+  border: none;
+  padding: 10px;
+  font-family: Arial;
+  font-weight: bold;
+  font-size: 16px;
+  border-radius: 8px;
+  height: 38px;
+  transition: all 0.3s ease;
+  background-color: #3FC380;
+  margin: auto;
 }
 
-.button2 {
-	width: 20%;
-	height: 30px;
-	border: 2px solid #959696;
-	background-color: #959696;
-	border-radius: 5px;
-	color: #ffffff;
-	font-size: 13px;
-	float: right;
-	margin-top: 12px;
-	margin-right: 10px;
-	outline: none;
-	font-weight: bold;
-	font-size: 16px;
-	cursor: pointer;
-}
 
   /* Responsive CSS */
 

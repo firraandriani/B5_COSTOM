@@ -40,8 +40,8 @@
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-            <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-            <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+            <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+            <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
@@ -56,8 +56,8 @@
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-        <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-        <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+        <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+        <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
     </div>
     <!--sidebar end-->
 
@@ -75,23 +75,30 @@
                 <div class="card_table2">
                     <table class="tabelMahasiswa" width="60%">
                         <tr>
-                            <th>No.</th>
+                            <th style="text-align: center;">No.</th>
                             <th>Nama Produk</th>
-                            <th>Berat Bersih(gr)</th>
-                            <th>Harga/pcs</th>
-                            <th>Produksi/1kg Kakao Kering</th>
-                            <th>Produksi/1kg Kakao Basah</th>
-                            <th>Action</th>
+                            <th style="text-align: center;">Berat Bersih(gr)</th>
+                            <th style="text-align: center;">Harga/pcs</th>
+                            <th style="text-align: center;">Produksi/1kg Kakao <br> Kering</th>
+                            <th style="text-align: center;">Produksi/1kg Kakao <br> Basah</th>
+                            <th colspan="2" style="text-align: center;">Action</th>
                         </tr>
                         <?php foreach ($data['produk']['list_data'] as $key => $value) { ?>
                         <tr>
-                            <th><?= ($key + 1) ?></th>
+                            <th style="text-align: center;"><?= ($key + 1) ?></th>
                             <th><?= $value['nama_produk'] ?></th>
-                            <th><?= $value['berat_bersih'] ?></th>
+                            <th style="text-align: center;"><?= $value['berat_bersih'] ?></th>
                             <th style="text-align: right;"><?= "Rp " . number_format($value['harga'], 2, ",", ".") ?></th>
-                            <th><?= $value['produksi_kakao_kering'] ?></th>
-                            <th><?= $value['produksi_kakao_basah'] ?></th>
-                            <th><a class = 'edit' href = '<?= BASEURL;?>/ubah_produk/<?= $value['id_produk']?>'><i class="fas fa-edit"></i> Ubah</a><a href="<?= BASEURL;?>/hapus_produk/hapus/<?= $value['id_produk']?>" class="hapus"><i class="fas fa-trash"></i> Hapus</a></th>
+                            <th style="text-align: center;"><?= $value['produksi_kakao_kering'] ?></th>
+                            <th style="text-align: center;"><?= $value['produksi_kakao_basah'] ?></th>
+                            <th style = "text-align: center;">
+                                <a class = 'edit' href = '<?= BASEURL;?>/ubah_produk/<?= $value['id_produk']?>'><i class="fas fa-edit"></i> Ubah</a>
+                            </th>
+                            <th style = "text-align: center;">
+                                <form method="get" action="<?= BASEURL;?>/hapus_produk/hapus/<?= $value['id_produk']?>">
+                                    <button style = "font-size: 16px; border: none;" type="submit" class="hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data tersebut?');"><i class="fas fa-trash"></i> Hapus</button>
+                                </form>
+                            </th>
                         </tr>
                         <?php } ?>
                     </table>

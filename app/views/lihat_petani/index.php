@@ -40,8 +40,8 @@
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-            <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-            <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+            <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+            <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
@@ -56,8 +56,8 @@
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-        <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-        <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+        <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+        <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
     </div>
     <!--sidebar end-->
 
@@ -82,21 +82,28 @@
                 <div class="card_table2">
                     <table class="tabelMahasiswa" width="60%">
                         <tr>
-                            <th>No.</th>
+                            <th style="text-align: center;">No.</th>
                             <th>Nama Petani</th>
-                            <th>Tanggal Lahir</th>
-                            <th>Alamat</th>
-                            <th>Status Keanggotaan <a href="<?= BASEURL ?>/lihat_petani/<?= $data['petani']['halaman_saat_ini']; ?>/status/<?= $isDesc ? 'asc' : 'desc' ?>"><i class="fas fa-angle-<?= $isDesc ? 'down' : 'up' ?>"></i></a></th>
-                            <th>Action</th>
+                            <th style="text-align: center;">Tanggal Lahir</th>
+                            <th style="text-align: center;">Alamat</th>
+                            <th style="text-align: center;">Status Keanggotaan <a href="<?= BASEURL ?>/lihat_petani/<?= $data['petani']['halaman_saat_ini']; ?>/status/<?= $isDesc ? 'asc' : 'desc' ?>"><i class="fas fa-angle-<?= $isDesc ? 'down' : 'up' ?>"></i></a></th>
+                            <th colspan="2" style="text-align: center;">Action</th>
                         </tr>
                         <?php foreach ($data['petani']['list_data'] as $key => $value) { ?>
                         <tr>
-                            <th><?= ($key + 1) ?></th>
+                            <th style="text-align: center;"><?= ($key + 1) ?></th>
                             <th><?= $value['nama_petani'] ?></th>
-                            <th><?= $value['tanggal_lahir'] ?></th>
-                            <th><?= $value['alamat'] ?></th>
-                            <th><?= $value['status_anggota'] ?></th>
-                            <th><a class = 'edit' href = '<?= BASEURL;?>/ubah_petani/<?= $value['id_petani']?>'><i class="fas fa-edit"></i> Ubah</a><a href="<?= BASEURL;?>/hapus_petani/hapus/<?= $value['id_petani']?>" class="hapus"><i class="fas fa-trash"></i> Hapus</a></th>
+                            <th style="text-align: center;"><?= $value['tanggal_lahir'] ?></th>
+                            <th style="text-align: center;"><?= $value['alamat'] ?></th>
+                            <th style="text-align: center;"><?= $value['status_anggota'] ?></th>
+                            <th style = "text-align: center;">
+                                <a class = 'edit' href = '<?= BASEURL;?>/ubah_petani/<?= $value['id_petani']?>'><i class="fas fa-edit"></i> Ubah</a>
+                            </th>
+                            <th style = "text-align: center;">
+                                <form method="get" action="<?= BASEURL;?>/hapus_petani/hapus/<?= $value['id_petani']?>">
+                                    <button style = "font-size: 16px; border: none;" type="submit" class="hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data tersebut?');"><i class="fas fa-trash"></i> Hapus</button>
+                                </form>
+                            </th>
                         </tr>
                         <?php } ?>
                     </table>

@@ -40,8 +40,8 @@
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-            <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-            <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+            <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+            <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
@@ -56,8 +56,8 @@
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-        <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-        <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+        <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+        <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
     </div>
     <!--sidebar end-->
 
@@ -71,7 +71,7 @@
                 <form action="<?= BASEURL ?>/Ubah_SKP/update" method="post">
                     <div class="form">
                     <div class="inputfield">
-                            <input name="id" type="hidden" value="<?= $data['id_keluar_produk'] ?? '' ?>">
+                            <input name="id_keluar_produk" type="hidden" value="<?= $data['id_keluar_produk'] ?? '' ?>">
                         </div>
                         <div class="inputfield">
                             <label class="dataDiri">Nama Produk</label>

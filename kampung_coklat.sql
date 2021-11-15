@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 29 Okt 2021 pada 02.11
+-- Waktu pembuatan: 15 Nov 2021 pada 07.20
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 7.4.15
 
@@ -128,18 +128,22 @@ CREATE TABLE `produk` (
 --
 
 INSERT INTO `produk` (`id_produk`, `nama_produk`, `berat_bersih`, `harga`, `produksi_kakao_kering`, `produksi_kakao_basah`) VALUES
-(1, 'Coklat Putih', 200, 10000, 12, 18),
-(2, 'Coklat', 122, 10000, 11, 111),
-(3, 'Coklatd', 200, 15000, 400, 23),
-(4, 'Coklat Stroberi', 200, 15000, 400, 23),
-(5, 'Coklat1', 200, 15000, 400, 23),
-(6, 'Coklat Strobe1ri', 200, 15000, 400, 23),
-(7, 'Coklatd12', 200, 15000, 400, 12),
-(8, 'Coklat 11', 200, 15000, 400, 23),
-(9, 'Coklat dww', 200, 122, 400, 23),
-(10, 'Coklat Vanila44', 2001, 15000, 400, 12),
-(11, 'Coklat sqq', 200, 25000, 400, 23),
-(12, 'Coklat Stroberih', 200, 15000, 400, 23);
+(1, 'Bar Crispy', 45, 12100, 16, 13),
+(2, 'Bar Dark 100%', 55, 19950, 12, 9),
+(3, 'Bar Dark 90%', 55, 17850, 13, 10),
+(4, 'Bar Dark 80%', 55, 15750, 14, 11),
+(5, 'Bar Dark 67%', 45, 12100, 16, 13),
+(7, 'Bar Love Milk ', 60, 12600, 8, 5),
+(8, 'Bar Love Original', 80, 12600, 10, 7),
+(9, 'Bar Milk', 45, 12100, 16, 13),
+(10, 'Bar Original', 45, 12100, 18, 15),
+(11, 'Bubuk Murni', 100, 13650, 9, 6),
+(12, 'Bubuk Original', 100, 13650, 8, 5),
+(13, 'Carang Mas Coklat', 450, 33000, 18, 15),
+(14, 'Kripik Pisang', 100, 30000, 30, 27),
+(15, 'Kripik Ubi Coklat', 450, 30000, 18, 15),
+(16, 'Permen Tape Coklat', 250, 18000, 20, 17),
+(17, 'Bubuk Strawberry ', 100, 13650, 7, 4);
 
 -- --------------------------------------------------------
 
@@ -161,26 +165,99 @@ CREATE TABLE `stok_kakao` (
 --
 
 INSERT INTO `stok_kakao` (`id_stok`, `tanggal_setor`, `nama_petani`, `stok_masuk`, `status_kakao`, `harga`) VALUES
-(1, '2021-10-14 04:21:30', 2, 476, 28, 15000),
-(2, '2021-10-14 04:21:47', 3, 501, 27, 25000),
-(3, '2021-10-14 04:22:34', 4, 382, 28, 15000),
-(6, '2021-10-14 04:22:48', 8, 654, 27, 25000),
-(7, '2021-10-14 04:23:52', 11, 416, 27, 25000),
-(8, '2021-10-14 04:24:07', 13, 576, 28, 15000),
-(9, '2021-10-14 04:24:21', 15, 511, 28, 15000),
-(10, '2021-10-14 04:24:43', 19, 443, 27, 25000),
-(11, '2021-10-14 04:25:16', 22, 483, 28, 15000),
-(12, '2021-10-14 04:25:33', 17, 589, 27, 25000),
-(13, '2021-10-14 04:25:48', 10, 571, 28, 15000),
-(14, '2021-10-14 04:26:01', 12, 364, 27, 25000),
-(15, '2021-10-14 04:26:13', 14, 562, 28, 15000),
-(16, '2021-10-14 04:26:28', 9, 531, 28, 15000),
-(17, '2021-10-14 04:27:18', 20, 231, 27, 25000),
-(18, '2021-10-14 04:28:31', 16, 488, 28, 15000),
-(19, '2021-10-14 04:29:11', 18, 654, 28, 15000),
-(20, '2021-10-14 04:29:45', 21, 287, 27, 25000),
-(21, '2021-10-14 04:30:03', 20, 574, 28, 25000),
-(22, '2021-10-14 04:30:47', 27, 482, 28, 15000);
+(1, '2019-01-04 06:19:16', 2, 476, 28, 15000),
+(2, '2019-01-05 06:19:25', 3, 501, 27, 25000),
+(3, '2019-01-07 06:19:30', 4, 382, 28, 15000),
+(6, '2019-01-09 06:19:36', 8, 654, 27, 25000),
+(7, '2019-01-10 04:23:52', 11, 416, 27, 25000),
+(8, '2019-01-11 04:24:07', 13, 576, 28, 15000),
+(9, '2019-01-12 04:24:21', 15, 511, 28, 15000),
+(12, '2019-01-14 04:25:33', 17, 589, 27, 25000),
+(13, '2019-01-17 04:25:48', 10, 571, 28, 15000),
+(14, '2019-01-18 04:26:01', 12, 364, 27, 25000),
+(15, '2019-01-19 04:26:13', 14, 562, 28, 15000),
+(16, '2019-01-19 04:26:28', 9, 531, 28, 15000),
+(17, '2019-01-20 04:27:18', 20, 231, 27, 25000),
+(19, '2019-01-21 04:29:11', 18, 654, 28, 15000),
+(27, '2019-02-02 06:05:38', 25, 416, 28, 15000),
+(28, '2019-03-23 06:06:12', 27, 576, 27, 15000),
+(29, '2019-04-03 06:30:07', 21, 576, 27, 25000),
+(30, '2019-05-05 06:30:26', 18, 416, 27, 25000),
+(31, '2019-05-07 06:30:26', 13, 287, 28, 15000),
+(32, '2019-05-08 06:30:26', 22, 654, 28, 15000),
+(33, '2019-05-08 06:30:26', 20, 488, 27, 25000),
+(34, '2019-05-08 06:30:26', 10, 576, 28, 15000),
+(35, '2019-05-10 06:30:26', 3, 531, 27, 25000),
+(37, '2019-05-11 06:30:26', 14, 364, 28, 15000),
+(38, '2019-05-11 06:30:26', 8, 571, 27, 25000),
+(39, '2019-05-13 06:30:26', 12, 582, 28, 15000),
+(41, '2019-05-14 06:30:26', 17, 498, 27, 25000),
+(42, '2019-05-16 06:30:26', 15, 543, 28, 15000),
+(44, '2019-06-20 06:30:26', 25, 363, 28, 15000),
+(45, '2019-06-21 06:30:26', 11, 387, 27, 25000),
+(46, '2019-07-26 06:30:26', 27, 571, 27, 25000),
+(47, '2019-08-02 06:30:26', 16, 476, 27, 25000),
+(48, '2019-08-02 06:30:26', 2, 454, 28, 15000),
+(50, '2019-09-02 06:30:26', 11, 542, 28, 15000),
+(51, '2019-09-04 07:07:37', 25, 341, 28, 15000),
+(52, '2019-09-05 06:30:26', 19, 512, 28, 15000),
+(53, '2019-09-06 06:30:26', 15, 321, 27, 25000),
+(54, '2019-09-07 07:07:27', 17, 512, 28, 15000),
+(55, '2019-09-07 06:30:26', 4, 231, 27, 25000),
+(56, '2019-09-07 06:30:26', 12, 545, 28, 15000),
+(57, '2019-09-08 06:30:26', 8, 562, 28, 15000),
+(58, '2019-09-08 06:52:16', 14, 456, 28, 15000),
+(59, '2019-09-08 06:52:16', 9, 523, 28, 15000),
+(60, '2019-09-10 06:52:16', 3, 323, 27, 25000),
+(61, '2019-09-11 06:52:16', 10, 361, 27, 25000),
+(62, '2019-09-13 06:52:16', 20, 567, 28, 15000),
+(65, '2019-09-17 07:07:10', 21, 398, 27, 25000),
+(66, '2019-10-29 06:52:16', 17, 226, 27, 25000),
+(67, '2019-11-30 06:52:16', 18, 531, 28, 25000),
+(68, '2019-12-02 07:17:40', 27, 476, 28, 15000),
+(70, '2020-01-04 07:17:40', 22, 498, 27, 25000),
+(71, '2020-01-05 07:17:40', 21, 231, 27, 25000),
+(73, '2020-01-08 07:17:40', 19, 562, 28, 15000),
+(74, '2020-01-09 07:17:40', 18, 387, 28, 25000),
+(75, '2020-01-09 07:17:40', 17, 521, 27, 25000),
+(76, '2020-01-11 07:17:40', 16, 592, 28, 15000),
+(79, '2020-01-14 07:17:40', 13, 231, 27, 25000),
+(80, '2020-01-15 07:17:40', 12, 123, 27, 25000),
+(81, '2020-01-16 07:17:40', 11, 452, 27, 25000),
+(82, '2020-02-21 07:17:40', 10, 333, 28, 15000),
+(83, '2020-03-23 07:17:40', 20, 521, 28, 15000),
+(84, '2020-03-25 07:17:40', 4, 234, 27, 25000),
+(86, '2020-04-30 07:17:40', 2, 520, 28, 15000),
+(87, '2020-04-01 07:17:40', 19, 476, 27, 25000),
+(88, '2020-05-03 07:25:34', 20, 429, 28, 15000),
+(89, '2020-05-04 07:25:34', 21, 428, 27, 25000),
+(90, '2020-05-05 07:25:34', 25, 543, 27, 25000),
+(93, '2020-05-06 07:25:34', 4, 364, 28, 15000),
+(94, '2020-05-08 07:25:34', 8, 511, 28, 15000),
+(95, '2020-05-09 07:25:34', 12, 412, 27, 25000),
+(97, '2020-06-14 07:25:34', 11, 125, 27, 25000),
+(98, '2020-06-16 07:25:34', 15, 433, 27, 25000),
+(99, '2020-06-17 07:25:34', 9, 123, 27, 25000),
+(100, '2020-07-27 07:25:34', 15, 422, 28, 15000),
+(101, '2020-08-31 07:25:34', 17, 597, 28, 15000),
+(102, '2020-08-01 07:25:34', 14, 501, 28, 15000),
+(103, '2020-09-01 07:25:34', 9, 429, 28, 15000),
+(104, '2020-09-02 07:34:53', 3, 428, 28, 15000),
+(105, '2020-09-04 07:34:53', 10, 543, 28, 15000),
+(106, '2020-09-05 07:25:34', 20, 346, 28, 15000),
+(107, '2020-09-06 07:34:53', 22, 363, 28, 15000),
+(108, '2020-09-08 07:34:53', 13, 364, 27, 25000),
+(109, '2020-09-08 07:34:53', 21, 312, 27, 25000),
+(110, '2020-09-10 07:34:53', 18, 422, 27, 25000),
+(111, '2020-09-12 07:34:53', 8, 345, 28, 15000),
+(114, '2020-09-15 07:34:53', 17, 223, 28, 25000),
+(116, '2020-09-17 07:34:53', 19, 517, 28, 15000),
+(117, '2020-09-18 07:34:53', 25, 121, 27, 25000),
+(118, '2020-10-21 07:34:53', 11, 532, 28, 15000),
+(119, '2020-11-24 07:34:53', 27, 331, 27, 25000),
+(120, '2020-11-26 07:34:53', 2, 287, 27, 25000),
+(121, '2020-12-28 07:34:53', 16, 522, 28, 15000),
+(122, '2021-11-08 09:08:59', 2, 10, 28, 15000);
 
 -- --------------------------------------------------------
 
@@ -201,12 +278,15 @@ CREATE TABLE `stok_keluar_kakao` (
 --
 
 INSERT INTO `stok_keluar_kakao` (`id_keluar_kakao`, `tanggal_keluar`, `nama_produk`, `stok_keluar`, `status_kakao`) VALUES
-(1, '2021-10-22 14:50:00', 2, 2002, 27),
+(1, '2020-10-22 14:50:00', 2, 2002, 27),
 (2, '2021-10-22 14:51:37', 3, 200, 28),
 (3, '2021-10-22 14:54:16', 3, 2002, 28),
 (6, '2021-10-22 15:00:01', 3, 200, 28),
 (7, '2021-10-23 01:14:58', 1, 12, 27),
-(8, '2021-10-23 01:15:11', 1, 11, 27);
+(8, '2021-10-23 01:15:11', 1, 11, 27),
+(10, '2021-10-30 04:09:01', 4, 12, 27),
+(11, '2021-11-01 08:10:48', 8, 11, 27),
+(12, '2021-11-08 07:55:00', 1, 199, 27);
 
 -- --------------------------------------------------------
 
@@ -226,8 +306,12 @@ CREATE TABLE `stok_keluar_produk` (
 --
 
 INSERT INTO `stok_keluar_produk` (`id_keluar_produk`, `tanggal_keluar`, `nama_produk`, `stok_keluar`) VALUES
-(1, '2021-10-22 16:55:51', 2, 200),
-(2, '2021-10-22 16:55:51', 3, 122);
+(1, '2021-10-22 16:55:51', 2, 11),
+(2, '2021-10-22 16:55:51', 3, 122),
+(3, '2021-10-29 08:33:08', 2, 11),
+(4, '2021-10-29 14:25:04', 1, 11),
+(5, '2021-10-30 04:11:34', 3, 12),
+(6, '2021-11-01 08:12:09', 2, 12);
 
 -- --------------------------------------------------------
 
@@ -247,10 +331,10 @@ CREATE TABLE `stok_masuk_produk` (
 --
 
 INSERT INTO `stok_masuk_produk` (`id_masuk_produk`, `tanggal_masuk`, `nama_produk`, `stok_masuk`) VALUES
-(1, '2021-10-22 16:56:09', 2, 200),
+(1, '2021-10-22 16:56:09', 2, 11),
 (2, '2021-10-22 16:56:09', 3, 12),
-(3, '2021-10-23 07:25:14', 2, 15),
-(4, '2021-10-23 07:27:04', 4, 11);
+(3, '2021-11-23 07:25:14', 2, 15),
+(5, '2021-11-01 08:11:53', 4, 10);
 
 -- --------------------------------------------------------
 
@@ -288,7 +372,9 @@ ALTER TABLE `kategori`
 -- Indeks untuk tabel `petani`
 --
 ALTER TABLE `petani`
-  ADD PRIMARY KEY (`id_petani`);
+  ADD PRIMARY KEY (`id_petani`),
+  ADD KEY `alamat_kec` (`alamat_kec`),
+  ADD KEY `status_anggota` (`status_anggota`);
 
 --
 -- Indeks untuk tabel `produk`
@@ -300,25 +386,29 @@ ALTER TABLE `produk`
 -- Indeks untuk tabel `stok_kakao`
 --
 ALTER TABLE `stok_kakao`
-  ADD PRIMARY KEY (`id_stok`);
+  ADD PRIMARY KEY (`id_stok`),
+  ADD KEY `nama_petani` (`nama_petani`);
 
 --
 -- Indeks untuk tabel `stok_keluar_kakao`
 --
 ALTER TABLE `stok_keluar_kakao`
-  ADD PRIMARY KEY (`id_keluar_kakao`);
+  ADD PRIMARY KEY (`id_keluar_kakao`),
+  ADD KEY `nama_produk` (`nama_produk`);
 
 --
 -- Indeks untuk tabel `stok_keluar_produk`
 --
 ALTER TABLE `stok_keluar_produk`
-  ADD PRIMARY KEY (`id_keluar_produk`);
+  ADD PRIMARY KEY (`id_keluar_produk`),
+  ADD KEY `nama_produk` (`nama_produk`);
 
 --
 -- Indeks untuk tabel `stok_masuk_produk`
 --
 ALTER TABLE `stok_masuk_produk`
-  ADD PRIMARY KEY (`id_masuk_produk`);
+  ADD PRIMARY KEY (`id_masuk_produk`),
+  ADD KEY `nama_produk` (`nama_produk`);
 
 --
 -- Indeks untuk tabel `user`
@@ -340,37 +430,37 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `petani`
 --
 ALTER TABLE `petani`
-  MODIFY `id_petani` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_petani` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `produk`
 --
 ALTER TABLE `produk`
-  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT untuk tabel `stok_kakao`
 --
 ALTER TABLE `stok_kakao`
-  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=25;
+  MODIFY `id_stok` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=124;
 
 --
 -- AUTO_INCREMENT untuk tabel `stok_keluar_kakao`
 --
 ALTER TABLE `stok_keluar_kakao`
-  MODIFY `id_keluar_kakao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id_keluar_kakao` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT untuk tabel `stok_keluar_produk`
 --
 ALTER TABLE `stok_keluar_produk`
-  MODIFY `id_keluar_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_keluar_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT untuk tabel `stok_masuk_produk`
 --
 ALTER TABLE `stok_masuk_produk`
-  MODIFY `id_masuk_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_masuk_produk` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `user`
@@ -386,13 +476,32 @@ ALTER TABLE `user`
 -- Ketidakleluasaan untuk tabel `petani`
 --
 ALTER TABLE `petani`
-  ADD CONSTRAINT `petani_ibfk_1` FOREIGN KEY (`id_petani`) REFERENCES `kategori` (`id`);
+  ADD CONSTRAINT `petani_ibfk_1` FOREIGN KEY (`alamat_kec`) REFERENCES `kategori` (`id`),
+  ADD CONSTRAINT `petani_ibfk_2` FOREIGN KEY (`status_anggota`) REFERENCES `kategori` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `stok_kakao`
 --
 ALTER TABLE `stok_kakao`
-  ADD CONSTRAINT `stok_kakao_ibfk_1` FOREIGN KEY (`id_stok`) REFERENCES `kategori` (`id`);
+  ADD CONSTRAINT `stok_kakao_ibfk_1` FOREIGN KEY (`nama_petani`) REFERENCES `petani` (`id_petani`);
+
+--
+-- Ketidakleluasaan untuk tabel `stok_keluar_kakao`
+--
+ALTER TABLE `stok_keluar_kakao`
+  ADD CONSTRAINT `stok_keluar_kakao_ibfk_1` FOREIGN KEY (`nama_produk`) REFERENCES `produk` (`id_produk`);
+
+--
+-- Ketidakleluasaan untuk tabel `stok_keluar_produk`
+--
+ALTER TABLE `stok_keluar_produk`
+  ADD CONSTRAINT `stok_keluar_produk_ibfk_1` FOREIGN KEY (`nama_produk`) REFERENCES `produk` (`id_produk`);
+
+--
+-- Ketidakleluasaan untuk tabel `stok_masuk_produk`
+--
+ALTER TABLE `stok_masuk_produk`
+  ADD CONSTRAINT `stok_masuk_produk_ibfk_1` FOREIGN KEY (`nama_produk`) REFERENCES `produk` (`id_produk`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

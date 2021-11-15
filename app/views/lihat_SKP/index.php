@@ -40,8 +40,8 @@
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-            <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-            <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+            <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+            <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
         </div>
     </div>
     <!--mobile navigation bar end-->
@@ -56,8 +56,8 @@
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_produk/1"><i class="fas fa-cookie"></i><span>DATA PRODUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SMP/1"><i class="fas fa-box"></i><span>STOK MASUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKP/1"><i class="fas fa-dolly"></i><span>STOK KELUAR</span></a>
-        <a class="menu" href="#"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
-        <a class="menu" href="#"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
+        <a class="menu" href="<?= BASEURL ?>/grafik/2021"><i class="fas fa-chart-bar"></i><span>GRAFIK</span></a>
+        <a class="menu" href="<?= BASEURL ?>/kalkulator"><i class="fas fa-calculator"></i><span>KALKULATOR</span></a>
     </div>
     <!--sidebar end-->
 
@@ -75,19 +75,26 @@
                 <div class="card_table2">
                     <table class="tabelMahasiswa" width="60%">
                         <tr>
-                            <th>No.</th>
-                            <th>Tanggal Keluar</th>
+                            <th style="text-align: center;">No.</th>
+                            <th style="text-align: center;">Tanggal Keluar</th>
                             <th>Nama Produk</th>
-                            <th>Stok Keluar(pcs)</th>
-                            <th>Action</th>
+                            <th style="text-align: center;">Stok Keluar(pcs)</th>
+                            <th colspan="2" style="text-align: center;">Action</th>
                         </tr>
                         <?php foreach ($data['keluar_produk']['list_data'] as $key => $value) { ?>
                         <tr>
-                            <th><?= ($key + 1) ?></th>
-                            <th><?= $value['tanggal_keluar'] ?></th>
+                            <th style="text-align: center;"><?= ($key + 1) ?></th>
+                            <th style="text-align: center;"><?= $value['tanggal_keluar'] ?></th>
                             <th><?= $value['nama_produk'] ?></th>
-                            <th><?= $value['stok_keluar'] ?></th>
-                            <th><a class = 'edit' href = '<?= BASEURL;?>/ubah_SKP/<?= $value['id_keluar_produk']?>'><i class="fas fa-edit"></i> Ubah</a><a href="<?= BASEURL;?>/hapus_SKP/hapus/<?= $value['id_keluar_produk']?>" class="hapus"><i class="fas fa-trash"></i> Hapus</a></th>
+                            <th style="text-align: center;"><?= $value['stok_keluar'] ?></th>
+                            <th style = "text-align: center;">
+                                <a class = 'edit' href = '<?= BASEURL;?>/ubah_SKP/<?= $value['id_keluar_produk']?>'><i class="fas fa-edit"></i> Ubah</a>
+                            </th>
+                            <th style = "text-align: center;">
+                                <form method="get" action="<?= BASEURL;?>/hapus_SKP/hapus/<?= $value['id_keluar_produk']?>">
+                                    <button style = "font-size: 16px; border: none;" type="submit" class="hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data tersebut?');"><i class="fas fa-trash"></i> Hapus</button>
+                                </form>
+                            </th>
                         </tr>
                         <?php } ?>
                     </table>

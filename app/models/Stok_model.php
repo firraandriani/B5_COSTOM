@@ -74,4 +74,40 @@ class Stok_model {
 
         return $this->db->rowCount();
     }
+
+    public function getStockInReport($year)
+    {
+        $query = "SELECT 
+                    DATE_FORMAT(`stok_kakao`.`tanggal_setor`, '%m-%Y') as date,
+                    SUM(`stok_kakao`.`stok_masuk`) as stok,
+                    `status_kakao`.`nama_kategori` as status_kakao
+                FROM `stok_kakao`
+                JOIN kategori as status_kakao ON `status_kakao`.id = `stok_kakao`.`status_kakao`
+                WHERE DATE_FORMAT(`stok_kakao`.`tanggal_setor`, '%Y') = '$year'
+                GROUP BY `stok_kakao`.`status_kakao`, DATE_FORMAT(`stok_kakao`.`tanggal_setor`, '%m-%Y')";
+
+        $this->db->query($query);
+        $result = $this->db->resultSet();
+
+        $stokMasukKering = [];
+        $stokMasukBasah = [];
+        foreach ($result as $x) {
+            if ($x['status_kakao'] == 'Kering') $stokMasukKering[] = $x;
+            else if ($x['status_kakao'] == 'Basah') $stokMasukBasah[] = $x;
+        }
+
+        $data = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $keyIndexStokMasukKering = array_search(sprintf('%s-%s', $i < 10 ? '0' . $i : $i, $year), array_column($stokMasukKering, 'date'));
+            $keyIndexStokMasukBasah = array_search(sprintf('%s-%s', $i < 10 ? '0' . $i : $i, $year), array_column($stokMasukBasah, 'date'));
+
+            if (is_numeric($keyIndexStokMasukKering)) $data['stok_masuk_kering'][] = $stokMasukKering[$keyIndexStokMasukKering]['stok'];
+            else $data['stok_masuk_kering'][] = 0;
+
+            if (is_numeric($keyIndexStokMasukBasah)) $data['stok_masuk_basah'][] = $stokMasukBasah[$keyIndexStokMasukBasah]['stok'];
+            else $data['stok_masuk_basah'][] = 0;
+        }
+
+        return $data;
+    }
 }
