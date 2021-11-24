@@ -98,7 +98,7 @@
                                 <?php if (isset($_SESSION['is_update']) && $_SESSION['is_update'] == 1) { ?>
                                 <div class="content1">
                                     <div class="header1">
-                                        <h2>Petani</h2>
+                                        <h2>Stok Keluar Produk</h2>
                                         <label for="klik" class="fas fa-times"></label>
                                     </div>
                                     <label for="klik" class="fas fa-check"></label>
