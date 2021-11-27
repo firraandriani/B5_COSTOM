@@ -11,7 +11,7 @@ class User_model {
 
     public function getUserById($id)
     {
-        $this->db->query('SELECT * FROM ' . $this->table . ' WHERE id_user=:id');
+        $this->db->query('SELECT user.*, hak_akses.nama_kategori AS hak_akses FROM ' . $this->table . ' JOIN kategori AS hak_akses ON hak_akses.id = user.id_hak_akses WHERE id_user=:id');
         $this->db->bind('id', $id);
         return $this->db->single();
     }

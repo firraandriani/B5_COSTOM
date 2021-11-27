@@ -21,7 +21,7 @@
             <img src="http://localhost/KampungCoklat/public/img/Logo-Daun.png">
         </div>
         <div class="right_area">
-            <a href="#" class="logout_btn">Logout</a>
+            <a href="<?= BASEURL ?>/logout" style="color: #000; margin-left: 10px;" class="logout_btn">Logout</a>
         </div>
     </header>
     <!--header area end-->
@@ -32,7 +32,9 @@
         </div>
         <div class="mobile_nav_items">
             <a class="menu" href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
-            <a class="menu" href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+            <?php if ($data['hak_akses'] != 'admin_prod') { ?>
+                <a class="menu" href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+            <?php } ?>
             <p class="menu2">KAKAO</p>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_stok/1"><i class="fas fa-calendar"></i><span>STOK MASUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKK/1"><i class="fas fa-calendar-check"></i><span>STOK KELUAR</span></a>
@@ -48,7 +50,9 @@
     <!--sidebar start-->
     <div class="sidebar">
         <a class="menu" href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
-        <a class="menu" href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+        <?php if ($data['hak_akses'] != 'admin_prod') { ?>
+            <a class="menu" href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+        <?php } ?>
         <p class="menu2">KAKAO</p>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_stok/1"><i class="fas fa-calendar"></i><span>STOK MASUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKK/1"><i class="fas fa-calendar-check"></i><span>STOK KELUAR</span></a>

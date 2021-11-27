@@ -4,9 +4,12 @@ class Ubah_SKK extends Controller {
     public function index($id) 
     {
         session_start();
+        $id_user = $_SESSION['id'];
+        $user = $this->model('User_model')->getUserById($id_user);
         $data = $this->model('SKK_model')->getSKKById($id);
         $listProduk = $this->model('Produk_model')->getList();
         $data['produk'] = $listProduk['list_data'];
+        $data = array_merge($data, $user);
         $this->view('ubah_SKK/index', $data);
         $_SESSION['is_update'] = 0;  
     }

@@ -7,7 +7,7 @@ class Tambah_stok extends Controller {
         $id_user = $_SESSION['id'];
         $user = $this->model('User_model')->getUserById($id_user);
         $listPetani = $this->model('Petani_model')->getListPetani();
-        $data['nama'] = $user['nama'];
+        $data= $user;
         $data['petani'] = $listPetani['list_data'];
         // var_dump($data['petani']); die;
 

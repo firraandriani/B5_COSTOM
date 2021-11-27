@@ -7,7 +7,7 @@ class Tambah_SKP extends Controller {
         $id_user = $_SESSION['id'];
         $user = $this->model('User_model')->getUserById($id_user);
         $listProduk = $this->model('Produk_model')->getList();
-        $data['nama'] = $user['nama'];
+        $data= $user;
         $data['produk'] = $listProduk['list_data'];
 
         $this->view('tambah_SKP/index', $data);

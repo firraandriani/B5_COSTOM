@@ -7,8 +7,8 @@ class Lihat_SKP extends Controller {
         $id_user = $_SESSION['id'];
 
         $user = $this->model('User_model')->getUserById($id_user);
+        $data= $user;
         $data['keluar_produk'] = $this->model('SKP_model')->getList($page);
-        $data['nama'] = $user['nama'];
 
         $this->view('lihat_SKP/index', $data);
     }

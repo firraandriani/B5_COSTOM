@@ -32,7 +32,9 @@
         </div>
         <div class="mobile_nav_items">
             <a class="menu" href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
-            <a class="menu" href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+            <?php if ($data['hak_akses'] != 'admin_prod') { ?>
+                <a class="menu" href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+            <?php } ?>
             <p class="menu2">KAKAO</p>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_stok/1"><i class="fas fa-calendar"></i><span>STOK MASUK</span></a>
             <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKK/1"><i class="fas fa-calendar-check"></i><span>STOK KELUAR</span></a>
@@ -48,7 +50,9 @@
     <!--sidebar start-->
     <div class="sidebar">
         <a class="menu" href="<?= BASEURL ?>/beranda"><i class="fas fa-home"></i><span>BERANDA</span></a>
-        <a class="menu" href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+        <?php if ($data['hak_akses'] != 'admin_prod') { ?>
+            <a class="menu" href="<?= BASEURL ?>/lihat_petani/1"><i class="fas fa-users"></i><span>PETANI</span></a>
+        <?php } ?>
         <p class="menu2">KAKAO</p>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_stok/1"><i class="fas fa-calendar"></i><span>STOK MASUK</span></a>
         <a class="sub_menu" href="<?= BASEURL ?>/lihat_SKK/1"><i class="fas fa-calendar-check"></i><span>STOK KELUAR</span></a>
@@ -69,7 +73,9 @@
             <div>
                 <div class="card_table1">
                     <br><br>
-                    <a href="<?= BASEURL ?>/tambah_SKK" class="tambah"><i class="fas fa-user-plus"></i><span> Tambah</span></a>
+                    <?php if ($data['hak_akses'] != 'presiden') { ?>
+                        <a href="<?= BASEURL ?>/tambah_SKK" class="tambah"><i class="fas fa-user-plus"></i><span> Tambah</span></a>
+                    <?php } ?>
                 </div>
                 </div>
                 <div class="card_table2">
@@ -80,7 +86,9 @@
                             <th>Nama Produk</th>
                             <th style="text-align: center;">Stok Keluar(kg)</th>
                             <th style="text-align: center;">Status Kakao</th>
-                            <th colspan="2" style="text-align: center;">Action</th>
+                            <?php if ($data['hak_akses'] != 'presiden') { ?>
+                                <th colspan="2" style="text-align: center;">Action</th>
+                            <?php } ?>
                         </tr>
                         <?php foreach ($data['keluar_kakao']['list_data'] as $key => $value) { ?>
                         <tr>
@@ -89,14 +97,16 @@
                             <th><?= $value['nama_produk'] ?></th>
                             <th style="text-align: center;"><?= $value['stok_keluar'] ?></th>
                             <th style="text-align: center;"><?= $value['status_kakao'] ?></th>
-                            <th style = "text-align: center;">
-                                <a class = 'edit' href = '<?= BASEURL;?>/ubah_SKK/<?= $value['id_keluar_kakao']?>'><i class="fas fa-edit"></i> Ubah</a>
-                            </th>
-                            <th style = "text-align: center;">
-                                <form method="get" action="<?= BASEURL;?>/hapus_SKK/hapus/<?= $value['id_keluar_kakao']?>">
-                                    <button style = "font-size: 16px; border: none;" type="submit" class="hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data tersebut?');"><i class="fas fa-trash"></i> Hapus</button>
-                                </form>
-                            </th>
+                            <?php if ($data['hak_akses'] != 'presiden') { ?>
+                                <th style = "text-align: center;">
+                                    <a class = 'edit' href = '<?= BASEURL;?>/ubah_SKK/<?= $value['id_keluar_kakao']?>'><i class="fas fa-edit"></i> Ubah</a>
+                                </th>
+                                <th style = "text-align: center;">
+                                    <form method="get" action="<?= BASEURL;?>/hapus_SKK/hapus/<?= $value['id_keluar_kakao']?>">
+                                        <button style = "font-size: 16px; border: none;" type="submit" class="hapus" onclick="return confirm('Apakah anda yakin ingin menghapus data tersebut?');"><i class="fas fa-trash"></i> Hapus</button>
+                                    </form>
+                                </th>
+                            <?php } ?>
                         </tr>
                         <?php } ?>
                     </table>

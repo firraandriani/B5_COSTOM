@@ -7,8 +7,9 @@ class Lihat_stok extends Controller {
         $id_user = $_SESSION['id'];
 
         $user = $this->model('User_model')->getUserById($id_user);
+        $data = $user;
         $data['stok'] = $this->model('Stok_model')->getList($page);
-        $data['nama'] = $user['nama'];
+        
 
         $this->view('lihat_stok/index', $data);
     }

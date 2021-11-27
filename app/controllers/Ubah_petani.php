@@ -4,7 +4,10 @@ class Ubah_petani extends Controller {
     public function index($id) 
     {
         session_start();
+        $id_user = $_SESSION['id'];
+        $user = $this->model('User_model')->getUserById($id_user);
         $data = $this->model('Petani_model')->getpetaniById($id);
+        $data = array_merge($data, $user);
         $this->view('ubah_petani/index', $data);
         $_SESSION['is_update'] = 0;  
     }

@@ -7,7 +7,7 @@ class Tambah_produk extends Controller {
         $id_user = $_SESSION['id'];
         $user = $this->model('User_model')->getUserById($id_user);
         // $data['petani'] = $this->model('Petani_model')->getList();
-        $data['nama'] = $user['nama'];
+        $data= $user;
 
         $this->view('tambah_produk/index', $data);
         $_SESSION['is_create'] = 0;
